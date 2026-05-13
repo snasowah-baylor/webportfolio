@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+
+{% block title %}About Stephen Sowah - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="bg-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <span class="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold uppercase tracking-wide mb-4">
+            About
+        </span>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-4">
+            Stephen Sowah
+        </h1>
+        <p class="text-xl sm:text-2xl text-violet-700 font-semibold mb-8">
+            Technology Operations & Site Reliability Engineer | AI, Cloud & Cybersecurity
+        </p>
+
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl leading-relaxed mb-8">
+            I build and defend cloud systems for a living, and I&rsquo;m now training to bring
+            AI engineering into that same security-first practice. Fourteen-plus years across
+            telecom, cloud, and operations &mdash; on four continents &mdash; have given me a
+            simple working philosophy: intelligent systems are only useful if they are also
+            secure by design.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <span class="inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Waco, Texas
+            </span>
+            <a href="mailto:stephen@nasowah.com" class="inline-flex items-center gap-2 hover:text-violet-700 transition-colors">
+                <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                stephen@nasowah.com
+            </a>
+        </div>
+
+        <div class="w-16 h-1 bg-gradient-to-r from-violet-500 to-indigo-500 mt-10"></div>
+    </div>
+</section>
+
+<!-- Professional Story -->
+<section class="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">My Story</h2>
+        <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+            <p>
+                My career began in Ghana as an ICT lecturer at Wa Polytechnic, teaching the
+                fundamentals of the systems I would spend the next decade building. From there
+                I moved into telecommunications and enterprise systems engineering &mdash;
+                first with PAiC and Global Wavenet, then AMDOCS deploying BSS/OSS platforms
+                across multiple countries, and later Huawei on large-scale telecom infrastructure.
+                Every role kept pulling me deeper into one question: how do you keep complex,
+                distributed systems both reliable and safe?
+            </p>
+            <p>
+                That question led me to South Africa as Operations Manager for an AWS cloud
+                security team, leading engineers who hardened production environments at scale.
+                Running a cloud security operation taught me that great security isn&rsquo;t
+                a bolt-on &mdash; it&rsquo;s an engineering discipline that shows up in the
+                architecture, the IAM model, the pipelines, and the day-to-day instincts of
+                the people on the team.
+            </p>
+            <p>
+                Today I&rsquo;m a graduate student at Baylor University&rsquo;s Hankamer School
+                of Business, pursuing an MS in Information Systems with a cybersecurity
+                concentration. I&rsquo;m focused on the place where applied AI and security meet:
+                LLM-powered tooling, retrieval pipelines, and the guardrails that make them safe
+                to ship. After I graduate in December 2026, I&rsquo;m looking for cybersecurity
+                and AI engineering roles where both halves of that practice matter.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="py-16 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-10">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Experience</h2>
+            <p class="text-sm font-semibold text-violet-700 bg-violet-50 border border-violet-100 rounded-full px-4 py-1.5 self-start sm:self-auto">
+                14+ years &middot; four continents
+            </p>
+        </div>
+
+        <div class="relative">
+            <div class="absolute left-3 sm:left-4 top-0 bottom-0 w-px bg-gradient-to-b from-violet-300 via-indigo-200 to-transparent"></div>
+
+            <div class="space-y-8">
+                <!-- Current part-time -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-violet-500 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-gray-900">Student Success Support Specialist</h3>
+                            <span class="inline-block text-xs font-semibold text-violet-700 bg-violet-100 rounded-full px-3 py-1 whitespace-nowrap">Current &middot; Part-time</span>
+                        </div>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">Baylor University &middot; Waco, Texas</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Building Power BI dashboards and SQL reporting that turn raw student
+                            data into actionable insights for academic advisors and leadership.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Operations Manager -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-violet-400 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Operations Manager &mdash; AWS Cloud Security</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">South Africa</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Led a team of cloud security engineers operating production AWS
+                            environments. Owned the operational tempo, incident response posture,
+                            and engineering practices that kept the platform secure at scale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Huawei -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-indigo-300 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-violet-400 to-indigo-400"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Telecommunications Systems Engineer</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">Huawei</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Engineered and supported large-scale telecom infrastructure deployments
+                            for carrier-grade networks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- AMDOCS -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-indigo-300 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-violet-400 to-indigo-400"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Systems Engineer</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">AMDOCS</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Delivered BSS/OSS platforms across multi-country deployments,
+                            integrating billing, customer management, and operations systems
+                            for telecom operators.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Global Wavenet -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-indigo-200 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-indigo-400 to-violet-300"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Systems Engineer</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">Global Wavenet</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Built and operated telecom platform integrations, working closely
+                            with carriers on production rollouts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PAiC -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-indigo-200 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-indigo-400 to-violet-300"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Systems Engineer</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">PAiC</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Designed and supported systems integrations as part of a small,
+                            hands-on engineering team.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Wa Polytechnic -->
+                <div class="relative pl-12 sm:pl-16">
+                    <span class="absolute left-0 top-2 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-indigo-200 shadow-sm">
+                        <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-indigo-300 to-violet-200"></span>
+                    </span>
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">ICT Lecturer</h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-3">Wa Polytechnic &middot; Ghana</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Taught core ICT coursework, mentoring students entering the
+                            technology workforce.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications -->
+<section class="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">Certifications</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 mb-8">
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 leading-snug">CompTIA Security+</h3>
+                        <p class="text-sm text-gray-500 mt-1">Passed April 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 leading-snug">AWS Certified AI Practitioner</h3>
+                        <p class="text-sm text-gray-500 mt-1">Amazon Web Services</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 leading-snug">ISC2 Certified in Cybersecurity (CC)</h3>
+                        <p class="text-sm text-gray-500 mt-1">ISC2</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 leading-snug">ITIL v4 Foundation</h3>
+                        <p class="text-sm text-gray-500 mt-1">AXELOS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-dashed border-violet-300 p-6">
+            <p class="text-xs font-semibold uppercase tracking-wide text-violet-700 mb-3">Currently Pursuing</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center text-sm font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-4 py-1.5">
+                    AWS Solutions Architect Associate
+                </span>
+                <span class="inline-flex items-center text-sm font-medium bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full px-4 py-1.5">
+                    CISM
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section class="py-16 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">Education</h2>
+
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-8 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-900">
+                    MS, Information Systems &middot; Cybersecurity Concentration
+                </h3>
+                <span class="inline-block text-sm font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-full px-3 py-1 whitespace-nowrap">
+                    Expected December 2026
+                </span>
+            </div>
+            <p class="text-base font-semibold text-violet-700 mb-4">
+                Baylor University &middot; Hankamer School of Business
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Focused on the intersection of applied AI and cybersecurity &mdash; secure cloud
+                architecture, AI/ML systems, and the governance practices that surround them.
+                Concurrently working part-time at Baylor as a Student Success Support Specialist,
+                building Power BI dashboards and SQL reporting for academic advising.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skills -->
+<section class="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">Technical Skills</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- AI / ML -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h3 class="text-lg font-bold text-gray-900">AI / ML</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">LangChain</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">LangGraph</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">n8n</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Gemini</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">scikit-learn</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">RAG</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">ChromaDB</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Chatbase</span>
+                </div>
+            </div>
+
+            <!-- Cybersecurity -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h3 class="text-lg font-bold text-gray-900">Cybersecurity</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Security+</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">DevSecOps</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Cloud Security</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">IAM</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">OWASP</span>
+                </div>
+            </div>
+
+            <!-- Cloud -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h3 class="text-lg font-bold text-gray-900">Cloud</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">AWS Architecture</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Cloud Security Ops</span>
+                </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h3 class="text-lg font-bold text-gray-900">Programming</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Python</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Django</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">SQL</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Analytics -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h3 class="text-lg font-bold text-gray-900">Analytics</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Power BI</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Tableau</span>
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">Excel</span>
+                </div>
+            </div>
+
+            <!-- Career Direction -->
+            <div class="bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl p-7 shadow-md text-white">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-block w-2 h-8 rounded-full bg-white/70"></span>
+                    <h3 class="text-lg font-bold">Where I&rsquo;m Headed</h3>
+                </div>
+                <p class="text-sm leading-relaxed text-violet-50">
+                    Bridging AI engineering and cybersecurity to build intelligent systems
+                    that are secure by design. Targeting cybersecurity and AI engineering
+                    roles after December 2026.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            See the work behind the resume
+        </h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Case studies covering AI workflows, cloud security, and full-stack engineering &mdash;
+            with the business problem, approach, and lessons learned.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'projects:list' %}" class="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-md">
+                View My Projects
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+            </a>
+            <a href="mailto:stephen@nasowah.com" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200">
+                Get in Touch
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Skills - Portfolio{% endblock %}
+
+{% block content %}
+<section class="bg-white pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+        <span class="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold uppercase tracking-wide mb-4">
+            Capabilities
+        </span>
+        <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            Skills & Expertise
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            A deep, hands-on toolkit spanning applied AI, secure cloud systems,
+            full-stack engineering, and the leadership skills that turn them into outcomes.
+        </p>
+        <div class="w-16 h-1 bg-gradient-to-r from-violet-500 to-indigo-500 mx-auto mt-8"></div>
+    </div>
+</section>
+
+<section class="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for category in skill_categories %}
+            <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm hover:shadow-lg hover:border-violet-200 transition-all duration-300 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-violet-500 to-indigo-500"></span>
+                    <h2 class="text-xl font-bold text-gray-900">{{ category.name }}</h2>
+                </div>
+                <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                    {{ category.tagline }}
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    {% for skill in category.skills %}
+                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">
+                        {{ skill }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Want the full picture?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+            See how these skills come together in real projects, or grab the resume for a quick overview.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'projects:list' %}" class="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg">
+                View Projects
+            </a>
+            <a href="{% url 'core:resume' %}" class="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 border-2 border-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200">
+                See Resume
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
