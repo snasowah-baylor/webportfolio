@@ -13,6 +13,11 @@ class Project(models.Model):
         ("DATA", "Data Science"),
         ("CYBERSECURITY", "Cybersecurity"),
         ("CLOUD", "Cloud & DevOps"),
+        ("AUTO", "Automation"),
+        ("DevOps", "DevOps/DevSecOps"),
+        ("Digital", "Digital Transformation"),
+        ("PM", "Project Management"),
+        ("Cyber", "Cybersecurity/Risk Management"),
         ("OTHER", "Other"),
     ]
 
