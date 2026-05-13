@@ -1,0 +1,42 @@
+[
+{
+  "model": "blog.blogcategory",
+  "pk": 1,
+  "fields": {
+    "name": "AI Engineering",
+    "slug": "ai-engineering"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Cybersecurity",
+    "slug": "cybersecurity"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Cloud & DevOps",
+    "slug": "cloud-devops"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Career & Learning",
+    "slug": "career-learning"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 5,
+  "fields": {
+    "name": "AI/ML Use Cases",
+    "slug": "ai-ml-use-cases"
+  }
+}
+]

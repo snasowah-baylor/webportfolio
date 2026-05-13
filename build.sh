@@ -26,7 +26,7 @@ print(f"  (using DJANGO_SETTINGS_MODULE={os.environ['DJANGO_SETTINGS_MODULE']})"
 from django.core.management import call_command
 from projects.models import Project
 from core.models import SkillCategory, Experience
-from blog.models import BlogPost
+from blog.models import BlogPost, BlogCategory
 
 def seed_if_empty(label, model, fixtures):
     n = model.objects.count()
@@ -41,6 +41,7 @@ def seed_if_empty(label, model, fixtures):
 seed_if_empty("projects",       Project,         ["projects/fixtures/projects.json"])
 seed_if_empty("skills",         SkillCategory,   ["core/fixtures/skills.json"])
 seed_if_empty("resume",         Experience,      ["core/fixtures/resume.json"])
+seed_if_empty("blog_categories", BlogCategory,    ["blog/fixtures/blog_categories.json"])
 seed_if_empty("blog",           BlogPost,        ["blog/fixtures/blog.json", "blog/fixtures/sector_articles.json"])
 
 print("===> final counts")
