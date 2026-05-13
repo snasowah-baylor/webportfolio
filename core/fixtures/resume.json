@@ -1,100 +1,100 @@
 [
-{
-  "model": "core.experience",
-  "pk": 1,
-  "fields": {
-    "role": "Student Success Support Specialist",
-    "company": "Baylor University",
-    "location": "Waco, Texas",
-    "period": "Current · Part-time",
-    "summary": "Building Power BI dashboards and SQL reporting that turn raw student data into actionable insights for academic advisors and leadership.",
-    "highlights": "Designed Power BI dashboards covering enrollment, retention, GPA, and DFW rates.\nWrote T-SQL views against the institutional data warehouse so other teams can reuse the same definitions.\nRan a metric-definition workshop with academic-affairs stakeholders to align conflicting definitions of retention.",
-    "is_current": true,
-    "display_order": 1
+  {
+    "model": "core.experience",
+    "pk": 1,
+    "fields": {
+      "role": "Student Success Support Specialist",
+      "company": "Baylor University",
+      "location": "Waco, Texas",
+      "period": "Current \u00c2\u00b7 Part-time",
+      "summary": "Building Power BI dashboards and SQL reporting that turn raw student data into actionable insights for academic advisors and leadership.",
+      "highlights": "Designed Power BI dashboards covering enrollment, retention, GPA, and DFW rates.\nWrote T-SQL views against the institutional data warehouse so other teams can reuse the same definitions.\nRan a metric-definition workshop with academic-affairs stakeholders to align conflicting definitions of retention.",
+      "is_current": true,
+      "display_order": 1
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 2,
+    "fields": {
+      "role": "Operations Manager \u00c2\u0097 AWS Cloud Security",
+      "company": "Confidential",
+      "location": "South Africa",
+      "period": "2020 \u00c2\u0097 2023",
+      "summary": "Led a team of cloud security engineers operating production AWS environments at scale.",
+      "highlights": "Owned operational tempo, incident response posture, and engineering practices for the production AWS environment.\nMentored engineers on hardening IAM, secrets management, and defense-in-depth patterns.\nOwned the team's on-call rotation and post-incident review process.",
+      "is_current": false,
+      "display_order": 2
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 3,
+    "fields": {
+      "role": "Telecommunications Systems Engineer",
+      "company": "Huawei",
+      "location": "Multi-country",
+      "period": "Prior",
+      "summary": "Engineered and supported large-scale telecom infrastructure deployments for carrier-grade networks.",
+      "highlights": "Carrier-grade telecom infrastructure deployment and support.\nMulti-country technical delivery on production rollouts.",
+      "is_current": false,
+      "display_order": 3
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 4,
+    "fields": {
+      "role": "Systems Engineer",
+      "company": "AMDOCS",
+      "location": "Multi-country",
+      "period": "Prior",
+      "summary": "Delivered BSS/OSS platforms across multi-country deployments, integrating billing, customer management, and operations systems for telecom operators.",
+      "highlights": "Delivered BSS/OSS platforms across multi-country deployments.\nIntegrated billing, customer management, and operations systems for telecom operators.",
+      "is_current": false,
+      "display_order": 4
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 5,
+    "fields": {
+      "role": "Systems Engineer",
+      "company": "Global Wavenet",
+      "location": "",
+      "period": "Prior",
+      "summary": "Built and operated telecom platform integrations, working closely with carriers on production rollouts.",
+      "highlights": "Built and operated telecom platform integrations.\nWorked directly with carriers on production rollouts.",
+      "is_current": false,
+      "display_order": 5
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 6,
+    "fields": {
+      "role": "Systems Engineer",
+      "company": "PAiC",
+      "location": "",
+      "period": "Prior",
+      "summary": "Designed and supported systems integrations as part of a small, hands-on engineering team.",
+      "highlights": "Designed and supported systems integrations in a small engineering team.",
+      "is_current": false,
+      "display_order": 6
+    }
+  },
+  {
+    "model": "core.experience",
+    "pk": 7,
+    "fields": {
+      "role": "ICT Lecturer",
+      "company": "Wa Polytechnic",
+      "location": "Ghana",
+      "period": "Prior",
+      "summary": "Taught core ICT coursework, mentoring students entering the technology workforce.",
+      "highlights": "Taught core ICT coursework to students entering the technology workforce.\nMentored students on career and technical skills.",
+      "is_current": false,
+      "display_order": 7
+    }
   }
-},
-{
-  "model": "core.experience",
-  "pk": 2,
-  "fields": {
-    "role": "Operations Manager — AWS Cloud Security",
-    "company": "Confidential",
-    "location": "South Africa",
-    "period": "2020 — 2023",
-    "summary": "Led a team of cloud security engineers operating production AWS environments at scale.",
-    "highlights": "Owned operational tempo, incident response posture, and engineering practices for the production AWS environment.\nMentored engineers on hardening IAM, secrets management, and defense-in-depth patterns.\nOwned the team's on-call rotation and post-incident review process.",
-    "is_current": false,
-    "display_order": 2
-  }
-},
-{
-  "model": "core.experience",
-  "pk": 3,
-  "fields": {
-    "role": "Telecommunications Systems Engineer",
-    "company": "Huawei",
-    "location": "Multi-country",
-    "period": "Prior",
-    "summary": "Engineered and supported large-scale telecom infrastructure deployments for carrier-grade networks.",
-    "highlights": "Carrier-grade telecom infrastructure deployment and support.\nMulti-country technical delivery on production rollouts.",
-    "is_current": false,
-    "display_order": 3
-  }
-},
-{
-  "model": "core.experience",
-  "pk": 4,
-  "fields": {
-    "role": "Systems Engineer",
-    "company": "AMDOCS",
-    "location": "Multi-country",
-    "period": "Prior",
-    "summary": "Delivered BSS/OSS platforms across multi-country deployments, integrating billing, customer management, and operations systems for telecom operators.",
-    "highlights": "Delivered BSS/OSS platforms across multi-country deployments.\nIntegrated billing, customer management, and operations systems for telecom operators.",
-    "is_current": false,
-    "display_order": 4
-  }
-},
-{
-  "model": "core.experience",
-  "pk": 5,
-  "fields": {
-    "role": "Systems Engineer",
-    "company": "Global Wavenet",
-    "location": "",
-    "period": "Prior",
-    "summary": "Built and operated telecom platform integrations, working closely with carriers on production rollouts.",
-    "highlights": "Built and operated telecom platform integrations.\nWorked directly with carriers on production rollouts.",
-    "is_current": false,
-    "display_order": 5
-  }
-},
-{
-  "model": "core.experience",
-  "pk": 6,
-  "fields": {
-    "role": "Systems Engineer",
-    "company": "PAiC",
-    "location": "",
-    "period": "Prior",
-    "summary": "Designed and supported systems integrations as part of a small, hands-on engineering team.",
-    "highlights": "Designed and supported systems integrations in a small engineering team.",
-    "is_current": false,
-    "display_order": 6
-  }
-},
-{
-  "model": "core.experience",
-  "pk": 7,
-  "fields": {
-    "role": "ICT Lecturer",
-    "company": "Wa Polytechnic",
-    "location": "Ghana",
-    "period": "Prior",
-    "summary": "Taught core ICT coursework, mentoring students entering the technology workforce.",
-    "highlights": "Taught core ICT coursework to students entering the technology workforce.\nMentored students on career and technical skills.",
-    "is_current": false,
-    "display_order": 7
-  }
-}
 ]
