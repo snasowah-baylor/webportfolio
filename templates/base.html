@@ -6,12 +6,15 @@
     <title>{% block title %}SNASowah{% endblock %}</title>
     {% load static %}
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        [x-cloak] { display: none !important; }
     </style>
     {% block extra_css %}{% endblock %}
 </head>

@@ -1,0 +1,171 @@
+[
+  {
+    "model": "core.skillcategory",
+    "pk": 1,
+    "fields": {
+      "name": "AI & Machine Learning",
+      "slug": "ai-machine-learning",
+      "tagline": "Production AI workflows, LLM applications, and intelligent automation.",
+      "description": "LangChain, n8n workflows, scikit-learn, neural networks, and AI agent development.",
+      "accent": "violet",
+      "icon_svg_path": "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0m3.879-7.879l-.707.707M9 19.414l-.707.707",
+      "display_order": 1,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "slug": "web-development",
+      "tagline": "Idiomatic full-stack code from API to interface.",
+      "description": "Django, FastAPI, React, responsive design, RESTful APIs, and modern web architectures.",
+      "accent": "indigo",
+      "icon_svg_path": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+      "display_order": 2,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Cloud & DevOps",
+      "slug": "cloud-devops",
+      "tagline": "Reliable, observable infrastructure and automated delivery.",
+      "description": "AWS, Docker, infrastructure as code, CI/CD pipelines, and system design.",
+      "accent": "blue",
+      "icon_svg_path": "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+      "display_order": 3,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Data & Analytics",
+      "slug": "data-analytics",
+      "tagline": "Turning raw data into decisions, dashboards, and forecasts.",
+      "description": "SQL, data pipelines, BI dashboards, and intelligent data processing.",
+      "accent": "purple",
+      "icon_svg_path": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+      "display_order": 4,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 5,
+    "fields": {
+      "name": "Cybersecurity",
+      "slug": "cybersecurity",
+      "tagline": "Application security, threat modeling, and secure-by-design systems.",
+      "description": "OWASP-aligned application security, threat analysis, and compliance.",
+      "accent": "rose",
+      "icon_svg_path": "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
+      "display_order": 5,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 6,
+    "fields": {
+      "name": "Operations & Leadership",
+      "slug": "operations-leadership",
+      "tagline": "Cross-functional leadership, mentoring, and operational excellence.",
+      "description": "Team leadership, project management, and operational excellence.",
+      "accent": "emerald",
+      "icon_svg_path": "M13 10V3L4 14h7v7l9-11h-7z",
+      "display_order": 6,
+      "show_on_home": true
+    }
+  },
+  {
+    "model": "core.skillcategory",
+    "pk": 7,
+    "fields": {
+      "name": "Automation",
+      "slug": "automation",
+      "tagline": "Workflow orchestration that removes toil and accelerates teams.",
+      "description": "n8n, scripting, and process automation that compounds engineering output.",
+      "accent": "fuchsia",
+      "icon_svg_path": "M13 10V3L4 14h7v7l9-11h-7z",
+      "display_order": 7,
+      "show_on_home": false
+    }
+  },
+
+  {"model": "core.skill", "pk": 1,  "fields": {"category": 1, "name": "LangChain",            "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 2,  "fields": {"category": 1, "name": "LangGraph",            "is_highlighted": false, "display_order": 2}},
+  {"model": "core.skill", "pk": 3,  "fields": {"category": 1, "name": "OpenAI API",           "is_highlighted": false, "display_order": 3}},
+  {"model": "core.skill", "pk": 4,  "fields": {"category": 1, "name": "Anthropic Claude",     "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 5,  "fields": {"category": 1, "name": "Hugging Face",         "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 6,  "fields": {"category": 1, "name": "RAG Pipelines",        "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 7,  "fields": {"category": 1, "name": "Vector Databases",     "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 8,  "fields": {"category": 1, "name": "scikit-learn",         "is_highlighted": true,  "display_order": 8}},
+  {"model": "core.skill", "pk": 9,  "fields": {"category": 1, "name": "PyTorch",              "is_highlighted": false, "display_order": 9}},
+  {"model": "core.skill", "pk": 10, "fields": {"category": 1, "name": "TensorFlow",           "is_highlighted": false, "display_order": 10}},
+  {"model": "core.skill", "pk": 11, "fields": {"category": 1, "name": "Prompt Engineering",   "is_highlighted": false, "display_order": 11}},
+  {"model": "core.skill", "pk": 12, "fields": {"category": 1, "name": "AI Agents",            "is_highlighted": true,  "display_order": 12}},
+
+  {"model": "core.skill", "pk": 13, "fields": {"category": 2, "name": "Django",               "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 14, "fields": {"category": 2, "name": "FastAPI",              "is_highlighted": false, "display_order": 2}},
+  {"model": "core.skill", "pk": 15, "fields": {"category": 2, "name": "React",                "is_highlighted": true,  "display_order": 3}},
+  {"model": "core.skill", "pk": 16, "fields": {"category": 2, "name": "Tailwind CSS",         "is_highlighted": true,  "display_order": 4}},
+  {"model": "core.skill", "pk": 17, "fields": {"category": 2, "name": "HTMX",                 "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 18, "fields": {"category": 2, "name": "REST APIs",            "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 19, "fields": {"category": 2, "name": "JavaScript",           "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 20, "fields": {"category": 2, "name": "TypeScript",           "is_highlighted": false, "display_order": 8}},
+  {"model": "core.skill", "pk": 21, "fields": {"category": 2, "name": "Node.js",              "is_highlighted": false, "display_order": 9}},
+
+  {"model": "core.skill", "pk": 22, "fields": {"category": 3, "name": "AWS",                  "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 23, "fields": {"category": 3, "name": "Docker",               "is_highlighted": true,  "display_order": 2}},
+  {"model": "core.skill", "pk": 24, "fields": {"category": 3, "name": "CI/CD",                "is_highlighted": true,  "display_order": 3}},
+  {"model": "core.skill", "pk": 25, "fields": {"category": 3, "name": "Kubernetes",           "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 26, "fields": {"category": 3, "name": "Terraform",            "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 27, "fields": {"category": 3, "name": "GitHub Actions",       "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 28, "fields": {"category": 3, "name": "Linux",                "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 29, "fields": {"category": 3, "name": "Observability",        "is_highlighted": false, "display_order": 8}},
+  {"model": "core.skill", "pk": 30, "fields": {"category": 3, "name": "Infrastructure as Code","is_highlighted": false,"display_order": 9}},
+
+  {"model": "core.skill", "pk": 31, "fields": {"category": 4, "name": "SQL",                  "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 32, "fields": {"category": 4, "name": "Python",               "is_highlighted": true,  "display_order": 2}},
+  {"model": "core.skill", "pk": 33, "fields": {"category": 4, "name": "PostgreSQL",           "is_highlighted": true,  "display_order": 3}},
+  {"model": "core.skill", "pk": 34, "fields": {"category": 4, "name": "Power BI",             "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 35, "fields": {"category": 4, "name": "Tableau",              "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 36, "fields": {"category": 4, "name": "Pandas",               "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 37, "fields": {"category": 4, "name": "NumPy",                "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 38, "fields": {"category": 4, "name": "ETL Pipelines",        "is_highlighted": false, "display_order": 8}},
+  {"model": "core.skill", "pk": 39, "fields": {"category": 4, "name": "Statistical Modeling", "is_highlighted": false, "display_order": 9}},
+
+  {"model": "core.skill", "pk": 40, "fields": {"category": 5, "name": "OWASP Top 10",         "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 41, "fields": {"category": 5, "name": "OAuth 2.0",            "is_highlighted": true,  "display_order": 2}},
+  {"model": "core.skill", "pk": 42, "fields": {"category": 5, "name": "JWT",                  "is_highlighted": true,  "display_order": 3}},
+  {"model": "core.skill", "pk": 43, "fields": {"category": 5, "name": "Threat Modeling",      "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 44, "fields": {"category": 5, "name": "SAST / DAST",          "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 45, "fields": {"category": 5, "name": "Penetration Testing",  "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 46, "fields": {"category": 5, "name": "Zero Trust",           "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 47, "fields": {"category": 5, "name": "Secrets Management",   "is_highlighted": false, "display_order": 8}},
+  {"model": "core.skill", "pk": 48, "fields": {"category": 5, "name": "SIEM",                 "is_highlighted": false, "display_order": 9}},
+  {"model": "core.skill", "pk": 49, "fields": {"category": 5, "name": "Incident Response",    "is_highlighted": false, "display_order": 10}},
+
+  {"model": "core.skill", "pk": 50, "fields": {"category": 6, "name": "Team Leadership",      "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 51, "fields": {"category": 6, "name": "Mentoring",            "is_highlighted": true,  "display_order": 2}},
+  {"model": "core.skill", "pk": 52, "fields": {"category": 6, "name": "Agile / Scrum",        "is_highlighted": true,  "display_order": 3}},
+  {"model": "core.skill", "pk": 53, "fields": {"category": 6, "name": "Project Management",   "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 54, "fields": {"category": 6, "name": "Stakeholder Communication", "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 55, "fields": {"category": 6, "name": "Hiring & Onboarding",  "is_highlighted": false, "display_order": 6}},
+  {"model": "core.skill", "pk": 56, "fields": {"category": 6, "name": "Strategic Planning",   "is_highlighted": false, "display_order": 7}},
+  {"model": "core.skill", "pk": 57, "fields": {"category": 6, "name": "Operational Excellence","is_highlighted": false,"display_order": 8}},
+
+  {"model": "core.skill", "pk": 58, "fields": {"category": 7, "name": "n8n",                  "is_highlighted": true,  "display_order": 1}},
+  {"model": "core.skill", "pk": 59, "fields": {"category": 7, "name": "Zapier",               "is_highlighted": false, "display_order": 2}},
+  {"model": "core.skill", "pk": 60, "fields": {"category": 7, "name": "Make",                 "is_highlighted": false, "display_order": 3}},
+  {"model": "core.skill", "pk": 61, "fields": {"category": 7, "name": "Airflow",              "is_highlighted": false, "display_order": 4}},
+  {"model": "core.skill", "pk": 62, "fields": {"category": 7, "name": "Webhooks",             "is_highlighted": false, "display_order": 5}},
+  {"model": "core.skill", "pk": 63, "fields": {"category": 7, "name": "Python Scripting",     "is_highlighted": true,  "display_order": 6}},
+  {"model": "core.skill", "pk": 64, "fields": {"category": 7, "name": "Process Automation",   "is_highlighted": false, "display_order": 7}}
+]

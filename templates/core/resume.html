@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Resume - Portfolio{% endblock %}
 
@@ -17,7 +18,7 @@
                     A snapshot of the work, certifications, and education behind the projects.
                 </p>
             </div>
-            <a href="#" aria-disabled="true" class="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
+            <a href="{% static 'resume.pdf' %}" download class="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -54,7 +55,7 @@
                             <span>{{ job.location }}</span>
                         </p>
                         <ul class="space-y-2 text-gray-600 text-sm leading-relaxed">
-                            {% for highlight in job.highlights %}
+                            {% for highlight in job.highlights_list %}
                             <li class="flex gap-3">
                                 <span class="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
                                 <span>{{ highlight }}</span>
@@ -89,6 +90,19 @@
             </div>
             {% endfor %}
         </div>
+
+        {% if in_progress_certs %}
+        <div class="mt-8 bg-gray-50 rounded-2xl border border-dashed border-violet-300 p-6">
+            <p class="text-xs font-semibold uppercase tracking-wide text-violet-700 mb-3">Currently Pursuing</p>
+            <div class="flex flex-wrap gap-2">
+                {% for cert in in_progress_certs %}
+                <span class="inline-flex items-center text-sm font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-4 py-1.5">
+                    {{ cert.name }}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>
 </section>
 

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} — Blog{% endblock %}
+
+{% block content %}
+<article class="bg-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+        <a href="{% url 'blog:list' %}" class="inline-flex items-center text-sm font-medium text-violet-600 hover:text-violet-700 mb-8">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to blog
+        </a>
+
+        <div class="flex flex-wrap items-center gap-2 mb-4 text-sm">
+            {% if post.category %}
+            <span class="font-semibold uppercase tracking-wider text-violet-700 bg-violet-50 border border-violet-100 rounded-full px-3 py-1 text-xs">
+                {{ post.category.name }}
+            </span>
+            {% endif %}
+            <span class="text-gray-500">{{ post.published_at|date:"F j, Y" }}</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            {{ post.title }}
+        </h1>
+
+        <p class="text-xl text-gray-600 leading-relaxed mb-6">{{ post.excerpt }}</p>
+
+        <div class="flex items-center gap-3 pb-8 mb-8 border-b border-gray-100">
+            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 text-white text-sm font-semibold">
+                {{ post.author|slice:":1" }}
+            </span>
+            <div>
+                <p class="text-sm font-semibold text-gray-900">Written by {{ post.author }}</p>
+                <p class="text-xs text-gray-500">{{ post.published_at|date:"F j, Y" }}</p>
+            </div>
+        </div>
+
+        {% if post.image %}
+        <div class="rounded-2xl overflow-hidden border border-gray-200 mb-10">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-auto">
+        </div>
+        {% endif %}
+
+        <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed whitespace-pre-line">{{ post.body }}</div>
+
+        {% if post.tag_chips %}
+        <div class="mt-12 pt-8 border-t border-gray-100">
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Tags</p>
+            <div class="flex flex-wrap gap-2">
+                {% for tag in post.tag_chips %}
+                <span class="inline-block text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</article>
+
+{% if related_posts %}
+<section class="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">More in {{ post.category.name }}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for r in related_posts %}
+            <a href="{% url 'blog:detail' slug=r.slug %}" class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-violet-200 transition-all duration-300 overflow-hidden">
+                <div class="p-6">
+                    <p class="text-xs text-gray-500 mb-2">{{ r.published_at|date:"M j, Y" }}</p>
+                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-violet-700 transition-colors mb-2 line-clamp-2">{{ r.title }}</h3>
+                    <p class="text-sm text-gray-600 line-clamp-3">{{ r.excerpt }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

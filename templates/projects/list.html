@@ -55,9 +55,16 @@
                     <div class="mt-auto">
                         <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">Tools</p>
                         <div class="flex flex-wrap gap-2">
+                            {% for tool in project.tools_list|slice:":6" %}
                             <span class="inline-flex items-center text-xs font-medium bg-gray-50 text-gray-700 border border-gray-200 rounded-full px-3 py-1">
-                                {{ project.tools_used|truncatechars:80 }}
+                                {{ tool }}
                             </span>
+                            {% endfor %}
+                            {% if project.tools_list|length > 6 %}
+                            <span class="inline-flex items-center text-xs font-medium text-gray-500 px-1 py-1">
+                                +{{ project.tools_list|length|add:"-6" }} more
+                            </span>
+                            {% endif %}
                         </div>
                     </div>
 

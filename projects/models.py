@@ -10,14 +10,11 @@ class Project(models.Model):
     CATEGORY_CHOICES = [
         ("AI", "AI & Machine Learning"),
         ("WEB", "Web Development"),
-        ("DATA", "Data Science"),
-        ("CYBERSECURITY", "Cybersecurity"),
+        ("CYBER", "Cybersecurity"),
         ("CLOUD", "Cloud & DevOps"),
+        ("DATA", "Data & Analytics"),
         ("AUTO", "Automation"),
-        ("DevOps", "DevOps/DevSecOps"),
-        ("Digital", "Digital Transformation"),
-        ("PM", "Project Management"),
-        ("Cyber", "Cybersecurity/Risk Management"),
+        ("ML", "Machine Learning"),
         ("OTHER", "Other"),
     ]
 

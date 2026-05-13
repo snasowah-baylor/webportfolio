@@ -32,9 +32,9 @@
                     {{ category.tagline }}
                 </p>
                 <div class="flex flex-wrap gap-2 mt-auto">
-                    {% for skill in category.skills %}
-                    <span class="inline-flex items-center text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100 rounded-full px-3 py-1">
-                        {{ skill }}
+                    {% for skill in category.skills.all %}
+                    <span class="inline-flex items-center text-xs font-medium bg-{{ category.accent }}-50 text-{{ category.accent }}-700 border border-{{ category.accent }}-100 rounded-full px-3 py-1">
+                        {{ skill.name }}
                     </span>
                     {% endfor %}
                 </div>

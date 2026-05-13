@@ -1,0 +1,124 @@
+[
+  {
+    "model": "blog.blogcategory",
+    "pk": 1,
+    "fields": {
+      "name": "AI Engineering",
+      "slug": "ai-engineering"
+    }
+  },
+  {
+    "model": "blog.blogcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Cybersecurity",
+      "slug": "cybersecurity"
+    }
+  },
+  {
+    "model": "blog.blogcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Cloud & DevOps",
+      "slug": "cloud-devops"
+    }
+  },
+  {
+    "model": "blog.blogcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Career & Learning",
+      "slug": "career-learning"
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 1,
+    "fields": {
+      "title": "Grounding LLM Chatbots: What Actually Works",
+      "slug": "grounding-llm-chatbots-what-actually-works",
+      "excerpt": "RAG pipelines look magical in demos and fragile in production. Here's what moved the needle for me on grounded, citable answers.",
+      "body": "Building the AI chatbot for this portfolio taught me that the model is rarely the problem. The first version cheerfully invented projects that didn't exist when a question fell outside the indexed content.\n\nThe fix had three pieces:\n\n1. A scope-classifier step that decides if a question is in-domain before the model even sees the retrieved context. Out-of-scope questions get a polite refusal, not a hallucinated answer.\n\n2. Mandatory citation: the system prompt forces the model to ground every claim in at least one retrieved chunk, and the response renderer drops any answer that doesn't cite.\n\n3. An evaluation set of 30 representative questions with reference answers. Without scored evals, every prompt change feels like an improvement.\n\nThe model upgrade I expected to matter most (4.5 -> 4.6) made almost no difference compared to the chunking and citation discipline.",
+      "category": 1,
+      "tags": "RAG, LangChain, Anthropic Claude, Evaluation",
+      "image": "",
+      "is_featured": true,
+      "is_published": true,
+      "published_at": "2026-04-22T15:00:00Z",
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 2,
+    "fields": {
+      "title": "Multi-Agent Systems: When the Right Answer Is Fewer Agents",
+      "slug": "multi-agent-systems-fewer-agents",
+      "excerpt": "Every chain I built started with one agent doing too much. Splitting into narrow, single-decision agents was the unlock — but only up to a point.",
+      "body": "I spent a semester building a multi-agent IT triage system in LangGraph and learned two contradictory lessons.\n\nThe first: single agents with too many tools degrade fast. A 'classify, retrieve, draft, and send' agent will skip steps under pressure and confidently produce broken work. Splitting that into four narrow agents — each with one job, one tool, and one typed handoff — made the system auditable and stable.\n\nThe second: more agents is not always better. My next iteration added a 'critic' agent that reviewed every step, and it doubled latency without improving outcomes. Critique works when the cost of being wrong is high (final responses, dollar amounts); it's overhead everywhere else.\n\nThe heuristic I now use: add an agent only when it represents a real decision boundary that benefits from isolation.",
+      "category": 1,
+      "tags": "LangGraph, AI Agents, Architecture",
+      "image": "",
+      "is_featured": true,
+      "is_published": true,
+      "published_at": "2026-03-10T15:00:00Z",
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 3,
+    "fields": {
+      "title": "Policy-as-Code: Make the Failure Message Do the Teaching",
+      "slug": "policy-as-code-failure-message-teaching",
+      "excerpt": "OPA and Kyverno earn trust through their error messages, not their rules. Here's the small change that drove adoption on my DevSecOps pipeline.",
+      "body": "When I first shipped Open Policy Agent rules into our CI pipeline, the deny messages said 'denied'. Engineers hated it. Pull requests would get blocked, the author would have no idea why, and a security person had to translate.\n\nI rewrote every rule's failure message to do three things:\n\n- Name the control that was violated (e.g., 'CIS 5.2.5: no privileged containers').\n- Quote the offending snippet from the manifest.\n- Show a concrete diff that would make the rule pass.\n\nAdoption flipped within a week. The same engineers who were trying to disable the gate started fixing issues themselves.\n\nPolicy-as-Code lives or dies on the developer experience of failing the gate. Treat the message as a product, not a log line.",
+      "category": 2,
+      "tags": "OPA, Policy-as-Code, DevSecOps, Kubernetes",
+      "image": "",
+      "is_featured": false,
+      "is_published": true,
+      "published_at": "2026-02-14T15:00:00Z",
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 4,
+    "fields": {
+      "title": "Why I Moved My Portfolio Off S3 Direct and Onto CloudFront",
+      "slug": "portfolio-s3-to-cloudfront",
+      "excerpt": "Static-site hosting on AWS looks trivial until HTTPS, custom domains, and OAC turn it into three weekends of yak-shaving. Here's what I'd do over.",
+      "body": "My first take on hosting nasowah.com was a public S3 bucket with website hosting enabled. It worked — until I wanted HTTPS on the apex domain. S3 website endpoints don't serve HTTPS, so the canonical migration is to put CloudFront in front of S3 with Origin Access Control.\n\nFour things I wish I'd known earlier:\n\n1. ACM certificates for CloudFront MUST be in us-east-1, even if your bucket is in another region. This trapped me for an hour.\n\n2. OAC replaced the older OAI pattern. Use OAC.\n\n3. CloudFront cache invalidation is part of your deploy script, not an afterthought. A successful sync to S3 looks broken until the cache expires.\n\n4. Route 53 alias records (not CNAME) for the apex domain. Apex CNAMEs are not allowed by DNS spec.\n\nTotal effort once you know the path: under an hour. The first time: most of a Saturday.",
+      "category": 3,
+      "tags": "AWS, CloudFront, S3, Route 53, Static Sites",
+      "image": "",
+      "is_featured": true,
+      "is_published": true,
+      "published_at": "2026-01-30T15:00:00Z",
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 5,
+    "fields": {
+      "title": "Spec-Driven Development with Claude Code",
+      "slug": "spec-driven-development-claude-code",
+      "excerpt": "A single SPEC.md file did more for my AI-assisted productivity than any prompt engineering trick. Here's the workflow.",
+      "body": "I used to start Claude Code sessions by typing the requirements into the chat. The model would build something close to right, I'd correct it, build close to right again, and ten cycles later I'd ship.\n\nMoving the spec into a SPEC.md file at the project root changed three things:\n\n1. The spec became reviewable. I could read it back to myself before generating code and catch ambiguities that I would otherwise have noticed only after a wrong implementation.\n\n2. The agent stopped drifting. With a stable reference document, follow-up turns stayed aligned to the original intent instead of riffing on whatever I last said.\n\n3. The spec became reusable. The next time I built something similar, I edited the old SPEC.md instead of starting over.\n\nThe practice cost me five minutes upfront and saved hours of correction.",
+      "category": 4,
+      "tags": "Claude Code, AI Tooling, Productivity",
+      "image": "",
+      "is_featured": false,
+      "is_published": true,
+      "published_at": "2025-12-12T15:00:00Z",
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z"
+    }
+  }
+]

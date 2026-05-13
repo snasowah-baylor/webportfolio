@@ -33,7 +33,7 @@
                     Stephen Sowah
                 </h2>
                 <p class="text-lg text-violet-700 font-semibold mb-6">
-                    AI &amp; Cybersecurity Graduate Student &middot; Technology Operations & Site Reliability Engineer | AI, Cloud & Cybersecurity
+                    AI &amp; Cybersecurity Graduate Student | Site Reliability Engineer &middot; Cloud & Cybersecurity &middot; Technology Operations
                 </p>
                 <div class="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
                     <p>
@@ -111,6 +111,81 @@
     </div>
 </section>
 
+<!-- Latest Articles Section -->
+{% if latest_posts %}
+<section class="py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+
+        <!-- LEFT: list of recent posts -->
+        <div class="lg:col-span-2">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold uppercase tracking-wide mb-3">
+                        From the Blog
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Latest Articles</h2>
+                </div>
+                <a href="{% url 'blog:list' %}" class="hidden sm:inline-flex items-center text-sm font-semibold text-violet-600 hover:text-violet-700">
+                    View all
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <ul class="divide-y divide-gray-100">
+                {% for post in latest_posts %}
+                <li>
+                    <a href="{% url 'blog:detail' slug=post.slug %}" class="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-5 hover:bg-gray-50 rounded-lg px-3 -mx-3 transition-colors">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                                {% if post.category %}
+                                <span class="font-semibold uppercase tracking-wider text-violet-700">{{ post.category.name }}</span>
+                                <span>·</span>
+                                {% endif %}
+                                <span>{{ post.published_at|date:"M j, Y" }}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 group-hover:text-violet-700 transition-colors line-clamp-2">{{ post.title }}</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2 mt-1">{{ post.excerpt }}</p>
+                        </div>
+                        <svg class="hidden sm:block w-5 h-5 text-gray-300 group-hover:text-violet-500 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'blog:list' %}" class="sm:hidden mt-4 inline-flex items-center text-sm font-semibold text-violet-600 hover:text-violet-700">
+                View all posts
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+            </a>
+        </div>
+
+        <!-- RIGHT: blog promo / CTA -->
+        <aside class="lg:col-span-1">
+            <div class="sticky top-24 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 p-8 text-white shadow-lg">
+                <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-xs font-semibold uppercase tracking-wide mb-4">
+                    Writing in public
+                </span>
+                <h3 class="text-2xl font-bold mb-3 leading-tight">Field notes from shipping AI &amp; ML</h3>
+                <p class="text-sm text-violet-50 leading-relaxed mb-6">
+                    Real-world case studies on AI in healthcare, finance, retail, manufacturing, education, and agriculture &mdash; plus what I learn building secure cloud systems.
+                </p>
+                <a href="{% url 'blog:list' %}" class="inline-flex items-center justify-center w-full px-5 py-3 bg-white text-violet-700 rounded-lg font-semibold hover:bg-violet-50 transition-colors duration-200">
+                    Read the blog
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </aside>
+    </div>
+</section>
+{% endif %}
+
 <!-- Featured Projects Section -->
 <section id="projects" class="py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
@@ -122,62 +197,67 @@
         </div>
 
         {% if featured_projects %}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {% for project in featured_projects %}
-            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col">
                 <!-- Project Image -->
                 {% if project.image %}
-                <div class="h-48 bg-gray-200 overflow-hidden">
+                <div class="h-36 bg-gray-200 overflow-hidden">
                     <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 </div>
                 {% else %}
-                <div class="h-48 bg-gradient-to-br from-violet-100 to-indigo-100 flex items-center justify-center">
-                    <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="h-36 bg-gradient-to-br from-violet-100 to-indigo-100 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
                 </div>
                 {% endif %}
 
                 <!-- Project Content -->
-                <div class="p-6">
+                <div class="p-5 flex flex-col flex-1">
                     <!-- Category Badge -->
-                    <div class="inline-block mb-3">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-violet-100 text-violet-700">
+                    <div class="inline-block mb-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-100 text-violet-700">
                             {{ project.get_category_display }}
                         </span>
                     </div>
 
                     <!-- Title -->
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">
                         {{ project.title }}
                     </h3>
 
                     <!-- Summary -->
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">
                         {{ project.summary }}
                     </p>
 
                     <!-- Tools -->
-                    <div class="mb-4">
+                    <div class="mb-4 mt-auto">
                         <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">Tools</p>
-                        <div class="flex flex-wrap gap-2">
-                            {% for tool in project.tools_used|truncatechars:50 %}
-                            <span class="inline-block text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                        <div class="flex flex-wrap gap-1.5">
+                            {% for tool in project.tools_list|slice:":3" %}
+                            <span class="inline-block text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded">
                                 {{ tool }}
                             </span>
                             {% endfor %}
+                            {% if project.tools_list|length > 3 %}
+                            <span class="inline-block text-xs text-gray-500 px-1 py-0.5">
+                                +{{ project.tools_list|length|add:"-3" }}
+                            </span>
+                            {% endif %}
                         </div>
                     </div>
 
                     <!-- Links -->
-                    <div class="flex gap-3 pt-4 border-t border-gray-100">
+                    <div class="flex gap-3 pt-3 border-t border-gray-100">
                         {% if project.github_link %}
-                        <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-sm font-semibold text-gray-900 hover:text-violet-600 transition-colors">
+                        <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-xs font-semibold text-gray-900 hover:text-violet-600 transition-colors">
                             GitHub
                         </a>
                         {% endif %}
                         {% if project.demo_link %}
-                        <a href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-sm font-semibold text-gray-900 hover:text-violet-600 transition-colors">
+                        <a href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-xs font-semibold text-gray-900 hover:text-violet-600 transition-colors">
                             Live Demo
                         </a>
                         {% endif %}
@@ -214,115 +294,28 @@
             </p>
         </div>
 
+        {% if expertise_categories %}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- AI & Machine Learning -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-violet-300 transition-colors">
-                <div class="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0m3.879-7.879l-.707.707M9 19.414l-.707.707"></path>
+            {% for category in expertise_categories %}
+            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-{{ category.accent }}-300 transition-colors">
+                <div class="w-12 h-12 bg-{{ category.accent }}-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-{{ category.accent }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ category.icon_svg_path }}"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">AI & Machine Learning</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{{ category.name }}</h3>
                 <p class="text-gray-600 mb-4">
-                    LangChain, n8n workflows, scikit-learn, neural networks, and AI agent development
+                    {{ category.description|default:category.tagline }}
                 </p>
                 <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">LangChain</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">n8n</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">scikit-learn</span>
+                    {% for skill in category.highlighted_skills %}
+                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">{{ skill.name }}</span>
+                    {% endfor %}
                 </div>
             </div>
-
-            <!-- Web Development -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Web Development</h3>
-                <p class="text-gray-600 mb-4">
-                    Django, React, responsive design, RESTful APIs, and modern web architectures
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Django</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">React</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Tailwind</span>
-                </div>
-            </div>
-
-            <!-- Cloud & DevOps -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Cloud & DevOps</h3>
-                <p class="text-gray-600 mb-4">
-                    AWS, Docker, infrastructure as code, CI/CD pipelines, and system design
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">AWS</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Docker</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">CI/CD</span>
-                </div>
-            </div>
-
-            <!-- Data Engineering -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-purple-300 transition-colors">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Data Engineering</h3>
-                <p class="text-gray-600 mb-4">
-                    SQL, data pipelines, analytics, and intelligent data processing
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">SQL</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Python</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">PostgreSQL</span>
-                </div>
-            </div>
-
-            <!-- Cybersecurity -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-red-300 transition-colors">
-                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Cybersecurity</h3>
-                <p class="text-gray-600 mb-4">
-                    Application security, threat analysis, secure design, and compliance
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Security</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">OAuth 2.0</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">JWT</span>
-                </div>
-            </div>
-
-            <!-- Operations Leadership -->
-            <div class="p-8 bg-gray-50 rounded-lg border border-gray-200 hover:border-green-300 transition-colors">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Operations & Leadership</h3>
-                <p class="text-gray-600 mb-4">
-                    Team leadership, project management, and operational excellence
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Leadership</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Agile</span>
-                    <span class="text-xs bg-white border border-gray-200 rounded px-2 py-1">Mentoring</span>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        {% endif %}
     </div>
 </section>
 

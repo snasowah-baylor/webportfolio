@@ -17,7 +17,9 @@
       "github_link": "https://github.com/nasowah/ai-portfolio-chatbot",
       "demo_link": "https://nasowah.com/chat",
       "is_featured": true,
-      "display_order": 1
+      "display_order": 1,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   },
   {
@@ -28,17 +30,19 @@
       "slug": "n8n-agent-workflow",
       "summary": "A self-hosted n8n automation that orchestrates an AI agent to triage inbound leads, enrich them from public sources, and route them to the right Slack channel.",
       "description": "A production automation built on n8n that replaces a manual lead-handling process with an autonomous agent workflow. When a new contact form submission lands, the workflow extracts the lead's name and company, calls an LLM-backed agent node to research the company (industry, size, recent news), scores the lead against an ideal-customer-profile rubric, and posts a structured summary to the appropriate Slack channel with suggested talking points. The business problem: a small team was spending 20+ minutes per lead on initial qualification, and high-intent leads were getting buried under low-fit ones. The workflow compresses qualification to under 90 seconds and surfaces the best-fit leads first.",
-      "category": "AI",
+      "category": "AUTO",
       "tools_used": "n8n, Docker, OpenAI API, Anthropic Claude API, Slack API, HTTP Request nodes, PostgreSQL, Webhook triggers",
       "key_features": "- Webhook entry point that accepts leads from any source (form, CRM, API)\n- LLM agent node with tool-calling for web search and company enrichment\n- Deterministic scoring step that combines agent output with rule-based filters\n- Slack routing logic that maps lead category to the right channel and on-call rep\n- Retry and dead-letter handling for transient API failures\n- Audit log written to Postgres for every run, enabling weekly quality review",
       "role_contribution": "Designed the workflow architecture from a whiteboard of the existing manual process, built and tested every node, wrote the agent prompts, and deployed the n8n instance on a Docker host behind a reverse proxy. I also trained the team on how to update the scoring rubric without breaking the flow.",
       "challenges": "Agent nodes were unreliable when given too much freedom — they would occasionally skip enrichment and hallucinate a score. The fix was to split the single agent into a chain of narrow steps, each with one tool and one decision, which made the flow auditable and dramatically more stable. Rate-limit handling on the enrichment APIs was the other big challenge, solved with a token-bucket pattern in a Function node.",
       "lessons_learned": "Agent autonomy is a knob, not a virtue — narrower agents with explicit handoffs outperformed a single \"do everything\" agent every time. I also learned the value of designing for observability from day one: every node writes a structured log entry, which made debugging production issues trivial compared to my earlier no-code projects.",
       "image": "",
-      "github_link": "https://github.com/nasowah/n8n-lead-agent",
+      "github_link": "https://github.com/snasowah-baylor/HandyManProject",
       "demo_link": null,
       "is_featured": true,
-      "display_order": 2
+      "display_order": 2,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   },
   {
@@ -59,7 +63,9 @@
       "github_link": "https://github.com/nasowah/langchain-research-agent",
       "demo_link": "https://research-agent.nasowah.com",
       "is_featured": false,
-      "display_order": 3
+      "display_order": 3,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   },
   {
@@ -80,7 +86,9 @@
       "github_link": "https://github.com/nasowah/ai-studio-media-pipeline",
       "demo_link": "https://media-pipeline.nasowah.com",
       "is_featured": false,
-      "display_order": 4
+      "display_order": 4,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   },
   {
@@ -91,7 +99,7 @@
       "slug": "machine-learning-project-scikit-learn",
       "summary": "A churn-prediction model for a subscription business built with scikit-learn, including feature engineering, model selection, calibration, and a deployable inference API.",
       "description": "An end-to-end machine learning project that predicts which subscription customers are likely to cancel in the next 30 days, so the retention team can intervene early. The pipeline ingests anonymized customer-event data, engineers behavioral features (engagement recency and frequency, support-ticket sentiment, billing anomalies), trains and compares several classifiers, calibrates the probabilities so they can be used for expected-value decisions, and serves predictions through a FastAPI endpoint. The business problem is that retention teams have limited capacity — a generic outreach campaign wastes effort on customers who would have stayed anyway and on customers already lost. A calibrated probability score lets the team prioritize the middle band where intervention actually changes outcomes.",
-      "category": "DATA",
+      "category": "ML",
       "tools_used": "Python, scikit-learn, pandas, NumPy, XGBoost, SHAP, FastAPI, MLflow, Docker, PostgreSQL, Jupyter",
       "key_features": "- Reproducible pipeline using scikit-learn Pipelines and ColumnTransformer\n- Time-aware train/validation split to prevent leakage from future events\n- Model comparison across logistic regression, random forest, and gradient boosting\n- Probability calibration with isotonic regression so scores match real frequencies\n- SHAP-based explanations exposed alongside each prediction\n- MLflow experiment tracking and a FastAPI inference service with input validation",
       "role_contribution": "Sole data scientist. I scoped the problem with the retention team, designed the labeling logic, engineered the features, trained and selected the model, built the evaluation framework (lift curves and expected-value plots, not just AUC), and shipped the inference API.",
@@ -101,7 +109,9 @@
       "github_link": "https://github.com/nasowah/churn-prediction",
       "demo_link": null,
       "is_featured": false,
-      "display_order": 5
+      "display_order": 5,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   },
   {
@@ -122,7 +132,423 @@
       "github_link": "https://github.com/nasowah/campus-skillswap",
       "demo_link": "https://skillswap.nasowah.com",
       "is_featured": true,
-      "display_order": 6
+      "display_order": 6,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 7,
+    "fields": {
+      "title": "PantryFinder",
+      "slug": "pantryfinder",
+      "summary": "A Django web app that helps Waco and Baylor-area residents find the nearest open food pantry, with hours, eligibility notes, and walking-distance estimates.",
+      "description": "PantryFinder is a community-facing Django application built for Waco, Texas and the Baylor student community. Food insecurity is a real but often invisible problem on and around campus, and the existing options — scattered church bulletins, outdated PDFs, word of mouth — are hard to navigate when someone is already in a tough spot. PantryFinder centralizes the local pantry network into a clean, mobile-first directory with current hours, what each pantry provides, eligibility requirements (some are student-only, some require ID, some are open to all), and a walking-distance estimate from the user's location. The business problem is reducing the friction between need and resource: a hungry student should not need to make six phone calls to find an open pantry on a Saturday.",
+      "category": "WEB",
+      "tools_used": "Python, Django, PostgreSQL, HTMX, Tailwind CSS, Leaflet.js, OpenStreetMap, Geopy, Docker",
+      "key_features": "- Searchable directory of local pantries with hours, eligibility, and contact info\n- Map view powered by Leaflet and OpenStreetMap tiles (no Google billing required)\n- Geolocation-based \"nearest open now\" sort\n- Admin interface for partner pantries to update their own hours\n- Mobile-first responsive design tested on entry-level phones\n- Multilingual seed content (English + Spanish) for the Waco community",
+      "role_contribution": "Sole developer and community lead. I interviewed three Waco pantry coordinators to validate the data model, built the Django backend and HTMX-driven UI, set up the Leaflet map integration, and recruited two pantries to pilot the partner-update flow.",
+      "challenges": "Pantry hours change constantly — special closures, holiday schedules, seasonal extensions — and no single source of truth exists. I added an \"as of\" timestamp on every listing and a low-friction \"report this is wrong\" button that creates an admin ticket, so the data stays trustworthy without requiring every pantry to log in weekly.",
+      "lessons_learned": "Civic software lives or dies on data freshness, not feature count. I also learned that a clear eligibility-at-a-glance line on each card mattered more to users than the map — people want to know if they can even go before they care about where it is.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/pantryfinder",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 7,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 8,
+    "fields": {
+      "title": "Hankamer School of Business Chatbot",
+      "slug": "hankamer-school-of-business-chatbot",
+      "summary": "A RAG-based chatbot that answers prospective and current student questions about Hankamer School of Business programs, faculty, and resources.",
+      "description": "A retrieval-augmented generation chatbot built to help prospective and current Hankamer School of Business students get fast, accurate answers about programs, faculty, application requirements, and student resources. Hankamer's public website is comprehensive but deep — many answers are three or four clicks in, and the contact form is slow. The chatbot ingests official program pages, faculty bios, and FAQ content, indexes them in a vector store, and answers questions with citations back to the source page. The business problem is enrollment-funnel friction: students who can't find the answer often give up, and admissions staff spend hours every week answering the same handful of questions.",
+      "category": "AI",
+      "tools_used": "Python, LangChain, ChromaDB, Anthropic Claude API, BeautifulSoup, Requests, FastAPI, Streamlit",
+      "key_features": "- Web-scraping pipeline using BeautifulSoup to ingest official Hankamer pages\n- Chunking and embedding into a ChromaDB collection scoped per program (MBA, MAcc, MSIS, etc.)\n- Claude-powered answer generation with mandatory citation of source URLs\n- Refusal handling for out-of-scope questions (e.g., \"what's the football score\")\n- Streamlit demo UI with a sample-question sidebar for first-time users\n- Re-ingest script that detects content changes via hashing and only re-embeds delta",
+      "role_contribution": "I designed and built the entire pipeline: the scraper, the chunking strategy, the vector store, the prompt template, and the Streamlit interface. I also assembled a 40-question evaluation set covering admissions, curriculum, faculty, and student-life topics to track answer quality across iterations.",
+      "challenges": "Faculty names and program acronyms (MBA, MSIS, MAcc) confused early retrieval — searching for \"MSIS\" matched too many unrelated pages because the term is sprinkled across the site. I added program-scoped collections so each query routes to the right namespace, which dramatically improved precision.",
+      "lessons_learned": "Domain-specific RAG benefits enormously from explicit scoping. I also learned that for institutional content, citation discipline is non-negotiable — users (and especially staff reviewing the bot) need to verify every answer against the source.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/hankamer-chatbot",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 8,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 9,
+    "fields": {
+      "title": "AWS Portfolio Website",
+      "slug": "aws-portfolio-website",
+      "summary": "A static personal portfolio site hosted on AWS S3 behind CloudFront, with Route 53 DNS, ACM TLS, and the custom domain nasowah.com.",
+      "description": "A production-grade static-site deployment of a personal portfolio on AWS, serving the custom domain nasowah.com. The architecture is the canonical AWS static-hosting pattern: S3 for object storage, CloudFront for CDN and HTTPS termination, Route 53 for DNS, and ACM for the TLS certificate. The business problem this solves is operational: it gives me a fast, globally-distributed, near-zero-cost personal site that I fully control, including HTTPS, custom error pages, and cache headers — all without running a server.",
+      "category": "CLOUD",
+      "tools_used": "AWS S3, AWS CloudFront, AWS Route 53, AWS Certificate Manager (ACM), AWS IAM, HTML, CSS, JavaScript",
+      "key_features": "- S3 bucket configured for static website hosting with restricted public access via Origin Access Control\n- CloudFront distribution with HTTPS-only redirect, gzip + Brotli compression, and custom error pages\n- Route 53 hosted zone with alias records pointing apex and www to CloudFront\n- ACM-issued TLS certificate with DNS validation\n- Least-privilege IAM policy for the deploy user\n- One-command deploy script that syncs to S3 and invalidates the CloudFront cache",
+      "role_contribution": "I designed the architecture, provisioned every AWS resource, configured DNS and TLS, wrote the deploy script, and have operated the site for over a year with zero downtime incidents.",
+      "challenges": "The first iteration served S3 directly, which exposed the bucket URL and couldn't do HTTPS on the custom domain. Migrating to CloudFront with Origin Access Control (the modern replacement for OAI) required reworking the bucket policy and re-issuing the cert through ACM in us-east-1 — a region requirement that is easy to miss.",
+      "lessons_learned": "AWS static hosting looks simple but has real footguns: the us-east-1 ACM requirement for CloudFront, the difference between S3 website endpoints and S3 REST endpoints, and the importance of CloudFront cache invalidation in the deploy step. Documenting each of these in the deploy script README saved me when I rebuilt the stack months later.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/nasowah-aws-site",
+      "demo_link": "https://nasowah.com",
+      "is_featured": false,
+      "display_order": 9,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 10,
+    "fields": {
+      "title": "Church Management System",
+      "slug": "church-management-system",
+      "summary": "A SQL Server database design with full ERD for managing members, attendance, donations, and ministry teams at a mid-sized church.",
+      "description": "A relational database design for a church management system, built as a SQL Server schema with a complete entity-relationship diagram. The system models members and households, weekly attendance, tithes and pledged donations, ministry-team assignments, and event registrations. The business problem is real: many small and mid-sized churches still run on spreadsheets and a paper attendance pad, which makes it impossible to answer simple stewardship questions like \"how many regular attenders haven't given this quarter\" or \"which ministry teams have open slots.\" A normalized schema turns those questions into queries.",
+      "category": "DATA",
+      "tools_used": "Microsoft SQL Server, T-SQL, SQL Server Management Studio, Lucidchart (ERD), Excel (sample data)",
+      "key_features": "- Fully normalized 3NF schema with primary/foreign-key relationships across 12 tables\n- ERD documenting cardinality, optionality, and business rules for every relationship\n- Stored procedures for common operations: register a household, record attendance, post a donation\n- Views for stewardship reports: giving by household, attendance trend by ministry, ministry-team capacity\n- Sample data loader that populates a realistic 200-household test database\n- Soft-delete pattern on members so historical attendance and giving stay intact",
+      "role_contribution": "Sole designer. I gathered requirements by interviewing two church administrators, designed the schema, drew the ERD, wrote the DDL and seed scripts, and built the reporting views.",
+      "challenges": "Modeling households was harder than expected — kids transition between households, spouses get added or removed, and historical giving must stay tied to the right household at the right point in time. I solved it with an effective-dated household-membership table rather than a foreign key directly on the member record.",
+      "lessons_learned": "Normalization is not the goal — answering business questions cheaply is. The effective-dating decision came from a stewardship report requirement, not from a normalization rule. I also learned that ERDs earn their keep when non-technical stakeholders can read them; I rewrote the diagram twice to make it readable for the church admins, and that conversation surfaced two relationship errors I would have shipped.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/church-mgmt-db",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 10,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 11,
+    "fields": {
+      "title": "DevSecOps Pipeline",
+      "slug": "devsecops-pipeline",
+      "summary": "A Jenkins CI/CD pipeline that integrates SAST, dependency scanning, container scanning, and OPA-based Policy-as-Code gates before any deploy.",
+      "description": "A DevSecOps pipeline built on Jenkins that demonstrates how to integrate security checks at every stage of a CI/CD flow rather than bolting them on at the end. The pipeline takes a sample Python application from commit to deploy, running static analysis, software-composition analysis, container vulnerability scanning, and a Policy-as-Code gate enforced by Open Policy Agent. Any high-severity finding fails the build with a structured report. The business problem this addresses is the all-too-common pattern where security shows up as a manual review step a week before release, by which time fixes are expensive and politically charged.",
+      "category": "CLOUD",
+      "tools_used": "Jenkins, Docker, SonarQube (SAST), Trivy (container + dependency scanning), OWASP Dependency-Check, Open Policy Agent (OPA), Rego, GitHub, Slack",
+      "key_features": "- Multi-stage Jenkinsfile with parallel security scans\n- SAST via SonarQube with quality-gate enforcement\n- Dependency scanning with both OWASP Dependency-Check and Trivy for cross-validation\n- Container image scan with Trivy before push, blocking on CRITICAL findings\n- OPA/Rego policy bundle evaluated against the Kubernetes manifest before deploy\n- Structured JSON results posted to Slack with links back to the Jenkins build\n- Allowlist mechanism for explicitly waived findings with expiration dates",
+      "role_contribution": "I designed and built the pipeline from scratch, wrote the Rego policies (e.g., \"no containers as root,\" \"no :latest image tags,\" \"resource limits required\"), and integrated the result-reporting into Slack.",
+      "challenges": "Noisy findings were the biggest threat to adoption — early versions failed every build on transitive CVEs that had no realistic exploit path, which trained developers to ignore the output. I introduced a tiered policy: criticals fail, highs require a tracked waiver, and informational findings inform without blocking. Build-pass rates and remediation rates both went up.",
+      "lessons_learned": "Security gates have to be calibrated, not maximalist. A pipeline that blocks on everything quickly becomes a pipeline that everyone bypasses. Policy-as-Code with OPA was the right choice because it makes the rules reviewable in pull requests, not buried in CI plugin configuration.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/devsecops-pipeline",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 11,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 12,
+    "fields": {
+      "title": "Power BI Student Success Dashboard",
+      "slug": "power-bi-student-success-dashboard",
+      "summary": "Interactive Power BI dashboards and SQL reporting for Baylor student success metrics, built as part of my current role in Technology Operations.",
+      "description": "A suite of Power BI dashboards and underlying SQL reports designed to give Baylor academic-affairs leadership a near-real-time view of student success metrics — enrollment trends, course-completion rates, GPA distributions by program, and intervention-program effectiveness. The work pairs T-SQL queries against the institutional data warehouse with Power BI semantic models that drive interactive, drillable visuals. The business problem is institutional: leadership has historically waited weeks for quarterly reports built manually in Excel, which made it hard to act on emerging issues like a course where DFW rates were rising. The dashboards compress that loop and let advisors see the same metric leadership sees.",
+      "category": "DATA",
+      "tools_used": "Microsoft Power BI, T-SQL, SQL Server, Power Query (M), DAX, Microsoft Fabric, Azure Data Studio",
+      "key_features": "- Drillable program-level dashboards: enrollment, retention, GPA, DFW rate, time-to-degree\n- DAX measures for cohort-over-cohort comparisons and rolling averages\n- Row-level security so advisors see their college, deans see their school, leadership sees all\n- Underlying T-SQL views that other teams can reuse without going through Power BI\n- Documented data dictionary mapping every visual to its source query and grain\n- Scheduled refresh with refresh-failure alerts to the BI team",
+      "role_contribution": "Owned the dashboard from requirements through delivery: gathered metric definitions with academic-affairs stakeholders, wrote the T-SQL views, built the Power BI semantic model and DAX measures, designed the report pages, and trained the first wave of users.",
+      "challenges": "Metric definitions varied across stakeholders — \"retention\" meant three different things to three different offices. I ran a metric-definition workshop, documented the agreed-on logic in plain English next to each visual, and made the SQL view names match those documented names. That alignment took longer than the technical build but was the difference between a dashboard people trusted and a dashboard people argued with.",
+      "lessons_learned": "Data work is mostly definition work. The DAX and the visuals were the easy part once the metrics were nailed down. I also learned to design dashboards backward from the decision they support — every visual should tie to a question someone is going to ask in a meeting.",
+      "image": "",
+      "github_link": null,
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 12,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 13,
+    "fields": {
+      "title": "Baylor Tableau Visualizations",
+      "slug": "baylor-tableau-visualizations",
+      "summary": "Academic data analysis built in Tableau using bump charts, segmented histograms, stacked bar charts, and tree maps to surface patterns in Baylor program data.",
+      "description": "A set of Tableau visualizations produced for graduate coursework using anonymized academic data. The project explores program enrollment, course performance, and demographic patterns using chart types deliberately chosen for fit: bump charts for ranking shifts across years, segmented histograms for grade distributions by course, stacked bar charts for cohort composition, and tree maps for program-share of total enrollment. The exercise was as much about choosing the right visual encoding for each question as it was about Tableau mechanics.",
+      "category": "DATA",
+      "tools_used": "Tableau Desktop, Tableau Public, Microsoft Excel, CSV preprocessing in Python, Tableau Prep",
+      "key_features": "- Bump chart showing program-ranking shifts year over year\n- Segmented histograms revealing bimodal grade distributions in specific courses\n- Stacked bar charts comparing cohort composition across programs\n- Tree map of program enrollment share, color-encoded by growth rate\n- Consistent visual style guide across all dashboards (typography, palette, label placement)\n- Story points stringing the charts into a guided narrative",
+      "role_contribution": "Sole analyst. I cleaned the source data in Python, designed each chart, built the Tableau dashboards, and presented the findings in a graduate seminar.",
+      "challenges": "The bump chart was the visual I most wanted to use and the hardest to get right — Tableau doesn't have a native bump chart, so I had to build it with dual-axis rank calculations and tweak label positioning manually. The first attempt was technically a bump chart but unreadable; the second iteration added tier coloring and only labeled the top and bottom ranks, which made the story jump out.",
+      "lessons_learned": "Chart-type choice is a craft decision, not a software decision. Two of my dashboards looked impressive in Tableau and conveyed almost nothing because I'd picked a chart type that didn't match the question. Switching one of those from a tree map to a small-multiples line chart turned a vague picture into a clear trend.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/baylor-tableau",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 13,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 14,
+    "fields": {
+      "title": "Policy-as-Code Framework",
+      "slug": "policy-as-code-framework",
+      "summary": "An OPA, Kyverno, and Sentinel implementation that enforces compliance policies automatically in cloud and Kubernetes environments.",
+      "description": "A unified Policy-as-Code framework built to enforce security and compliance controls across three layers of a modern cloud stack: Terraform infrastructure (Sentinel), Kubernetes admission control (Kyverno), and application-level decisions (OPA). The framework codifies a set of representative controls — encryption at rest required, public S3 buckets forbidden, container images must come from an approved registry, no privileged pods — and proves them out against a sample environment. The business problem is the gap between written policy and enforced policy: most organizations have a security policy document, and most of the controls in that document depend on humans remembering to follow them. Policy-as-Code closes that gap by making the policy executable.",
+      "category": "CYBER",
+      "tools_used": "Open Policy Agent (OPA), Rego, Kyverno, HashiCorp Sentinel, Terraform, Kubernetes, GitHub Actions, Conftest",
+      "key_features": "- Sentinel policies that gate Terraform plans for forbidden infrastructure patterns\n- Kyverno policies enforcing namespace, image-source, and pod-security standards on every Kubernetes admission\n- OPA bundle for application-side authorization decisions\n- Conftest integration so policies are testable in CI against fixture manifests\n- Policy library structured by control framework (CIS, NIST 800-53) for traceability\n- Exception process with expiring waivers tracked in version control",
+      "role_contribution": "I designed the multi-layer architecture, wrote the Rego, Kyverno, and Sentinel policies, set up the CI tests with Conftest, and authored the documentation that maps each policy to the compliance control it enforces.",
+      "challenges": "Cross-layer consistency was tricky — the same intent (\"only approved images\") had to be expressed three times in three syntaxes, and divergence between them was the most common bug. I added a CI test that runs the same scenario through all three policy engines and compares the verdicts, which caught two cases where the Sentinel policy was stricter than the Kyverno one.",
+      "lessons_learned": "Policy-as-Code only earns trust when the failure messages are actionable. Early policies just said \"denied\" — I rewrote every deny rule to explain which control was violated and what the user needs to change. That single discipline drove most of the adoption.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/policy-as-code",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 14,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 15,
+    "fields": {
+      "title": "OWASP A08 Research",
+      "slug": "owasp-a08-research",
+      "summary": "Deep research and class presentation on Software and Data Integrity Failures (OWASP Top 10 A08) for ISEC 5320 at Baylor.",
+      "description": "An in-depth research project and presentation on OWASP A08 — Software and Data Integrity Failures — produced for ISEC 5320, a graduate cybersecurity course at Baylor. The work covers the threat category in detail: the underlying weaknesses (CWE-345, CWE-494, CWE-502), real-world incidents (SolarWinds, dependency-confusion attacks, malicious npm packages), the supply-chain implications, and concrete mitigations including signed artifacts, SLSA provenance, SBOM adoption, and verified update channels. The deliverable is both a written report and a 45-minute class presentation, structured to teach the topic rather than merely summarize it.",
+      "category": "CYBER",
+      "tools_used": "OWASP Top 10 documentation, CWE database, MITRE ATT&CK, SLSA framework references, SBOM tools (Syft, CycloneDX), PowerPoint, academic citation tooling",
+      "key_features": "- Threat-model walkthrough mapping A08 weaknesses to attacker steps\n- Case studies of SolarWinds, ua-parser-js compromise, and dependency-confusion attacks\n- Defense-in-depth recommendations across build, distribution, and runtime\n- Demo of generating an SBOM with Syft and verifying signatures on a sample artifact\n- Discussion questions designed to stretch the class beyond compliance-checkbox thinking\n- Annotated bibliography of primary sources for further reading",
+      "role_contribution": "Sole researcher, author, and presenter. I selected the case studies, structured the argument, built the slides, and led the in-class Q&A.",
+      "challenges": "A08 is broad and easy to summarize at a surface level — the harder work was making it concrete enough that classmates left with usable mental models. I anchored each abstract weakness to a specific incident and ended with a hands-on SBOM demo so the topic landed as a practice, not a slogan.",
+      "lessons_learned": "Research presentations are teaching, not summarizing — the test of whether I'd understood the material was whether classmates could explain A08 to a junior engineer afterward. The case-study + demo format worked far better than a definition-heavy outline.",
+      "image": "",
+      "github_link": null,
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 15,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 16,
+    "fields": {
+      "title": "Network Security Lab",
+      "slug": "network-security-lab",
+      "summary": "Hands-on lab work covering NAT, remote access, port scanning, VPN configuration, and subnetting for the ISEC 5320 graduate cybersecurity course.",
+      "description": "A semester of network security lab assignments completed for ISEC 5320 at Baylor, covering the foundational network attack and defense techniques every security practitioner should be able to perform. Labs included configuring NAT on a router and tracing the resulting packet flow, setting up and securing remote access via SSH with key-based authentication, performing controlled port scans with nmap against a lab environment and interpreting the results, configuring an OpenVPN tunnel and capturing the encrypted traffic for analysis, and working through subnetting problems from CIDR math to ACL design.",
+      "category": "CYBER",
+      "tools_used": "Cisco Packet Tracer, GNS3, nmap, Wireshark, OpenVPN, OpenSSH, iptables, Linux (Ubuntu, Kali), Windows Server",
+      "key_features": "- NAT configuration lab with before/after packet captures\n- SSH hardening lab: key auth only, custom port, fail2ban, audit logging\n- nmap reconnaissance against a controlled lab network, with stealth-scan comparisons\n- OpenVPN site-to-site tunnel with traffic analysis in Wireshark\n- Subnetting exercises from /24 down to /30, with corresponding ACLs\n- Lab notebook documenting each exercise as a reproducible runbook",
+      "role_contribution": "Completed every lab solo, wrote up each as a runbook with commands, screenshots, and observations, and submitted the consolidated lab notebook as the course deliverable.",
+      "challenges": "The subnetting labs revealed how rusty my CIDR math had become — I burned an evening on a /28 question that I should have solved in five minutes. After that I built a worksheet of 50 subnetting problems and drilled them until I could do them without scratch paper, which paid off on the final exam.",
+      "lessons_learned": "Network security at the practitioner level is a hands-on craft, not a memorization exercise. nmap output looks the same as a screenshot for years until you've actually run scans, watched packets in Wireshark, and seen what stealth vs. SYN vs. UDP scans look like from both sides. The labs made the textbook material click.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/isec5320-network-labs",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 16,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 17,
+    "fields": {
+      "title": "AI in SDLC Research Paper",
+      "slug": "ai-in-sdlc-research-paper",
+      "summary": "Graduate research paper and presentation on how AI coding tools — GitHub Copilot, Claude Code, and Cursor — are changing the software development lifecycle.",
+      "description": "A graduate-level research paper and class presentation examining how AI coding tools are reshaping every phase of the software development lifecycle. The paper covers GitHub Copilot, Claude Code, and Cursor, comparing how each fits into requirements gathering, design, implementation, code review, testing, and maintenance. It draws on academic literature, vendor documentation, and first-hand experience using each tool on real projects, and it engages honestly with the concerns: code quality drift, over-reliance, IP and licensing risk, security implications, and the changing definition of what \"writing code\" means.",
+      "category": "AI",
+      "tools_used": "GitHub Copilot, Anthropic Claude Code, Cursor, Visual Studio Code, academic literature (IEEE, ACM), Microsoft Word, PowerPoint",
+      "key_features": "- Comparative analysis matrix of Copilot vs. Claude Code vs. Cursor across SDLC phases\n- First-hand productivity observations from using each tool on identical small tasks\n- Discussion of failure modes: subtle bug introduction, license bleed-through, prompt-injection in untrusted code\n- Survey of academic studies measuring productivity impact\n- Recommendations for responsible adoption in regulated environments\n- Forward-looking section on agentic coding tools and the autonomy spectrum",
+      "role_contribution": "Sole author. I selected the tools, designed the comparison framework, ran the hands-on evaluation tasks, reviewed the literature, wrote the paper, and presented it to the class.",
+      "challenges": "Comparing the tools fairly was harder than expected — each is best at a different scope (Copilot for inline completion, Cursor for codebase-wide edits, Claude Code for agent-style tasks). My first draft compared them on a single benchmark and made one look obviously better, which wasn't honest. The revised paper used scope-appropriate tasks for each and was clearer about the no-single-winner conclusion.",
+      "lessons_learned": "AI coding tools are not interchangeable; the right question is which tool for which task. I also learned that productivity claims need careful scoping — \"Copilot makes me 30% faster\" is meaningless without specifying at what, and the published studies struggle with the same definitional problem.",
+      "image": "",
+      "github_link": null,
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 17,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 18,
+    "fields": {
+      "title": "Multi-Agent IT Triage System",
+      "slug": "multi-agent-it-triage-system",
+      "summary": "A graduate-level multi-agent IT Service Desk that classifies incoming tickets, routes them, drafts responses, and escalates when confidence is low.",
+      "description": "A multi-agent IT Service Desk system built as a graduate project, demonstrating how a coordinated set of LLM agents can handle the front line of IT support. A classifier agent reads each incoming ticket and labels it (password reset, software install, hardware request, security incident, other). A retrieval agent pulls relevant knowledge-base articles from a ChromaDB index. A drafting agent composes a response using the retrieved context. A confidence agent reviews the draft and either approves it for auto-reply or escalates the ticket to a human queue with the draft attached. The business problem is the volume-to-quality tradeoff every help desk faces: most tickets are routine, but the routine ones consume the staff capacity needed for the complex ones.",
+      "category": "AI",
+      "tools_used": "Python, LangChain, LangGraph, Google Gemini API (free tier), ChromaDB, Streamlit, Pydantic, FastAPI",
+      "key_features": "- LangGraph state machine coordinating the classifier, retrieval, drafting, and confidence agents\n- ChromaDB-backed knowledge base seeded with realistic synthetic IT articles\n- Pydantic-typed inter-agent messages so handoffs fail loudly when malformed\n- Streamlit dashboard showing live ticket flow and per-agent decisions\n- Configurable confidence threshold so the auto-resolve rate can be tuned\n- Audit log of every agent decision for post-hoc review",
+      "role_contribution": "Sole developer. I designed the agent architecture, implemented each agent, built the LangGraph orchestration, seeded the knowledge base, and produced the Streamlit demo used in the class presentation.",
+      "challenges": "The confidence agent was the system's hardest piece — earlier versions either approved everything or escalated everything, depending on how the rubric was phrased. I fixed it by giving the confidence agent a structured rubric (citation present? policy-sensitive? user-mentioned-emergency?) and forcing it to score each dimension separately before producing a final verdict.",
+      "lessons_learned": "Multi-agent systems are easier to reason about than single monolithic prompts because every step is auditable, but only if you discipline the handoffs with typed schemas. Free-text handoffs between agents collapse into the same chaos as a single big prompt. I also learned that for triage, \"confidently escalate\" is a feature, not a failure mode.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/multi-agent-it-triage",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 18,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 19,
+    "fields": {
+      "title": "Campus SkillSwap API",
+      "slug": "campus-skillswap-api",
+      "summary": "A Django REST Framework API extension of Campus SkillSwap, exposing endpoints for a future mobile client while reusing the existing business logic.",
+      "description": "An API extension of the Campus SkillSwap platform (see pk 6) that exposes the platform's core capabilities through a versioned REST API. The goal was to make the platform mobile-ready without rewriting it: every endpoint reuses the same model layer and domain services that the HTMX web UI consumes, so a future iOS or Android client can offer the same matching, messaging, and session-tracking features. The business problem is reach — students live on their phones, and the web UI alone limits adoption; building an API now keeps the door open without forcing a premature mobile-app decision.",
+      "category": "WEB",
+      "tools_used": "Python, Django, Django REST Framework, JWT (SimpleJWT), drf-spectacular (OpenAPI), PostgreSQL, Docker, Postman",
+      "key_features": "- Versioned API under /api/v1 with explicit deprecation policy\n- JWT auth with refresh tokens via djangorestframework-simplejwt\n- ViewSets for users, skill offers/wants, matches, messages, and sessions\n- OpenAPI 3 schema generated by drf-spectacular and a hosted Swagger UI\n- Pagination, filtering, and search defaults on every list endpoint\n- Rate limiting per user and per IP via DRF throttling classes\n- Postman collection checked into the repo with example flows",
+      "role_contribution": "I designed the API surface, implemented every viewset and serializer, set up the JWT auth flow, wrote the OpenAPI schema annotations, and built the Postman collection for the next developer who picks it up.",
+      "challenges": "Reusing the web app's business logic without leaking web-only concerns (request objects, session-based messages) required extracting a thin service layer between models and views. The first attempt called view-layer code from the API and broke as soon as I tried to write tests, which surfaced the abstraction I had been avoiding.",
+      "lessons_learned": "An API is a product, not a port. The temptation to mirror the URL structure of the web app produced an awkward API; redesigning around the resources that mobile clients actually need (matches as a first-class resource, not a side effect of skills) produced a much cleaner surface. I also learned to invest in OpenAPI annotations early — they pay back immediately the first time someone else has to read your API.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/campus-skillswap-api",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 19,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 20,
+    "fields": {
+      "title": "Forex Trading Analysis System",
+      "slug": "forex-trading-analysis-system",
+      "summary": "A Python-based technical analysis tool for forex and Bitcoin that computes indicators, visualizes signals, and back-tests simple trading rules.",
+      "description": "A personal-project Python tool that pulls historical price data for forex pairs and Bitcoin, computes standard technical indicators (moving averages, RSI, MACD, Bollinger Bands), visualizes them, and back-tests a small set of rule-based trading strategies. The point of the project was educational rather than commercial: building it forced me to confront how easy it is to overfit a strategy to past data and how brittle most \"obvious\" signals are once you account for spread, slippage, and the asymmetry of a real account. The business problem, framed honestly, was learning — not making money.",
+      "category": "DATA",
+      "tools_used": "Python, pandas, NumPy, matplotlib, plotly, requests, yfinance, TA-Lib, Jupyter Notebook",
+      "key_features": "- Data fetcher for multiple forex pairs and BTC-USD via free APIs\n- Indicator library with vectorized implementations of MA, RSI, MACD, Bollinger Bands\n- Strategy harness that takes a rule function and runs it against historical data\n- Back-test report with equity curve, drawdown, win rate, and risk-adjusted return\n- Realistic transaction-cost modeling so back-tests don't lie\n- Plotly-based interactive charts for signal inspection",
+      "role_contribution": "Sole developer. I built every component, designed the back-test framework, and ran experiments against several strategy variants.",
+      "challenges": "The first back-test of a moving-average crossover strategy looked great — until I added realistic transaction costs and slippage, after which the same strategy was solidly unprofitable. That was the most useful failure in the project: it taught me to never trust a back-test that ignores friction. Survivorship bias in the data was the second trap, addressed by being careful about delisted-pair handling.",
+      "lessons_learned": "Quantitative trading research is a discipline in not fooling yourself, and the math is the easy part. Costs, slippage, lookahead bias, and overfitting are the real adversaries. I also learned to distrust any indicator-based strategy that looks too clean — clean back-tests usually mean a leak somewhere.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/forex-analysis",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 20,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 21,
+    "fields": {
+      "title": "Security+ Study Automation",
+      "slug": "security-plus-study-automation",
+      "summary": "Python scripts and automation tools built to accelerate CompTIA Security+ exam preparation, including practice-test generation and spaced-repetition review.",
+      "description": "A set of Python automation scripts built during my CompTIA Security+ preparation to make studying more efficient. The tools include a flashcard generator that turns a topic outline into Anki-compatible decks, a practice-test runner that randomizes questions from a question bank and tracks per-topic accuracy, a spaced-repetition scheduler that surfaces the topics I'm getting wrong, and a weakness report that highlights which Security+ domains need more time. The business problem was personal: with limited evening study hours, brute-forcing every flashcard was wasteful — I needed the tools to point me at the questions I was actually getting wrong.",
+      "category": "AUTO",
+      "tools_used": "Python, SQLite, Anki (genanki), pandas, Markdown, JSON, command-line argparse, tqdm",
+      "key_features": "- Flashcard generator producing Anki decks from a structured Markdown outline\n- Practice-test runner with randomization, timing, and per-domain scoring\n- SQLite database tracking every question, response, and outcome over time\n- Spaced-repetition scheduler implementing a simplified SM-2 algorithm\n- Weakness report grouping incorrect answers by Security+ domain and objective\n- One-command export of weak-area decks for focused review sessions",
+      "role_contribution": "Sole developer. I built every script, designed the question schema, and tuned the spaced-repetition parameters based on my own retention over a 6-week study period.",
+      "challenges": "The biggest pitfall was over-engineering the tool instead of studying — building the perfect scheduler was a way to feel productive without learning Security+ content. I time-boxed the tool development to one weekend and forced myself back to actual studying after that, which was the right call.",
+      "lessons_learned": "The best study tool is the one you actually use, not the most elegant one. My version 1 was rough and worked; my version 2 plans never shipped because I passed the exam first. I also learned that personal automation has a different bar for done than work software — \"good enough for me\" is the goal.",
+      "image": "",
+      "github_link": "https://github.com/nasowah/secplus-study-tools",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 21,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 22,
+    "fields": {
+      "title": "Sprintax Tax Filing Guide",
+      "slug": "sprintax-tax-filing-guide",
+      "summary": "Technical documentation and workflow for F-1 nonresident alien tax filing using Sprintax, including FICA correction and W-2c handling.",
+      "description": "A technical documentation and workflow guide for F-1 nonresident-alien students filing US taxes through Sprintax. The guide walks through the full process end to end: determining residency status under the substantial-presence test, identifying when FICA tax has been improperly withheld, filing Form 843 and Form 8316 to request a FICA refund from the IRS, and handling W-2c corrected wage statements when an employer adjusts withholding mid-year. The audience is fellow international students who routinely face these issues without clear, current documentation. The business problem is real — incorrect FICA withholding on F-1 wages is widespread, and the IRS process to recover those funds is opaque enough that many students simply give up.",
+      "category": "OTHER",
+      "tools_used": "Sprintax tax software, IRS Form 843, IRS Form 8316, Form W-2 / W-2c, Microsoft Word, screenshot annotation tools, Markdown",
+      "key_features": "- Decision tree for substantial-presence-test residency determination\n- Step-by-step Sprintax walkthrough with annotated screenshots\n- FICA-refund workflow: identifying the over-withholding, drafting the employer request, filing Form 843/8316 with supporting documents\n- W-2c handling: when employers issue corrections and how Sprintax responds\n- FAQ addressing common edge cases (changed visa status, multi-state filing, treaty benefits)\n- Document checklist students can print and use during filing",
+      "role_contribution": "I wrote the entire guide based on my own filing experience and follow-up research, verified the IRS form references against current IRS publications, and shared it informally with other international students at Baylor.",
+      "challenges": "IRS form instructions change yearly and Sprintax UI is updated regularly — keeping the guide accurate requires re-checking it every tax season. I added a header noting the tax year covered and a version-history section so readers know how fresh the content is.",
+      "lessons_learned": "Documentation for bureaucratic processes is a real form of contribution, especially for under-served audiences. The students who used the guide most weren't confused by tax law — they were confused by the gap between the law and the actual UI of the tax software, which is exactly where a clear walkthrough helps. I also learned to write for the worst-case reader: tired, anxious, filing at midnight before a deadline.",
+      "image": "",
+      "github_link": null,
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 22,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 23,
+    "fields": {
+      "title": "Django OOP Course Projects",
+      "slug": "django-oop-course-projects",
+      "summary": "A series of Python OOP assignments (PE2 through PE7) demonstrating object-oriented programming principles inside a Django course context.",
+      "description": "A series of progressive object-oriented programming assignments (Programming Exercises 2 through 7) completed for a Python and Django course. The assignments build cumulatively: PE2 introduces classes and instance methods, PE3 adds inheritance and method resolution order, PE4 covers encapsulation and properties, PE5 explores polymorphism and abstract base classes, PE6 brings in composition versus inheritance trade-offs, and PE7 applies the full OOP toolbox to model a small Django app's domain. The point of the series is not just to demonstrate that I can write a class — it's to show I understand when each technique is appropriate and what each one costs.",
+      "category": "WEB",
+      "tools_used": "Python, Django, abc (Abstract Base Classes), dataclasses, type hints, pytest, mypy, VS Code",
+      "key_features": "- Six self-contained mini-projects (PE2–PE7), each a runnable Python or Django module\n- Type hints and docstrings on every public method\n- Unit tests with pytest for every assignment\n- Mypy-clean code with explicit interfaces declared via Protocols and ABCs\n- Reflective README per assignment discussing the design decisions and trade-offs\n- A culminating Django mini-app in PE7 that uses the OOP techniques in a realistic web context",
+      "role_contribution": "Sole author. I designed each assignment's solution, wrote and tested every module, and produced the design-rationale write-ups.",
+      "challenges": "The hardest assignment was PE6 — composition versus inheritance — because the textbook examples were too clean to make the trade-off feel real. I rebuilt the assignment around a small game-character system where both approaches were viable, which made the comparison concrete. The version of the code that used composition was longer but extended more cleanly, and that was the lesson.",
+      "lessons_learned": "Object-oriented programming is a set of tools, not a doctrine. \"Always use inheritance\" and \"never use inheritance\" are both wrong; the question is what each choice costs in the specific situation. I also learned that abstract base classes pay off most when the class hierarchy is going to grow, and are over-engineering when it isn't.",
+      "image": "",
+      "github_link": "https://github.com/snasowah-baylor/LearningLogProject",
+      "demo_link": null,
+      "is_featured": false,
+      "display_order": 23,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 26,
+    "fields": {
+      "title": "docx to Markdown Converter",
+      "slug": "docx-to-markdown-converter",
+      "summary": "A FastAPI web service that converts .docx files to clean Markdown instantly in the browser using mammoth.",
+      "description": "Word documents are locked in a proprietary format that doesn't play well with modern developer workflows. This tool solves that by providing a drag-and-drop web interface to instantly convert .docx files to clean Markdown — preserving headings, bold, italic, lists, and hyperlinks. Built with FastAPI and deployed on AWS, it demonstrates production-grade Python web development with containerization.",
+      "category": "WEB",
+      "tools_used": "FastAPI, Python, mammoth, Docker, AWS Elastic Beanstalk, Uvicorn, HTML, CSS",
+      "key_features": "- Drag-and-drop upload UI with no JS frameworks\n- Accurate conversion powered by mammoth preserving all formatting\n- Filename mirroring so output matches input\n- Auto API docs via FastAPI Swagger UI\n- Docker-ready for local dev and production\n- Deployed on AWS Elastic Beanstalk",
+      "role_contribution": "Sole developer. Designed and built the FastAPI application, conversion pipeline, drag-and-drop frontend, Docker configuration, and AWS Elastic Beanstalk deployment. Used spec-driven development with SPEC.md as source of truth.",
+      "challenges": "Ensuring accurate conversion of complex Word documents with nested formatting, tables, and hyperlinks required careful mammoth configuration. Also had to design the Docker image to work identically in local dev and AWS production environments.",
+      "lessons_learned": "FastAPI is significantly faster to develop with than Django for pure API services with no database. Spec-driven development with a SPEC.md file dramatically reduces ambiguity during development. Docker Compose for local dev that mirrors production eliminates environment-related bugs.",
+      "image": "",
+      "github_link": "https://github.com/snasowah-baylor/docxMD_convert",
+      "demo_link": "",
+      "is_featured": false,
+      "display_order": 26,
+      "created_at": "2025-01-15T12:00:00Z",
+      "updated_at": "2025-01-15T12:00:00Z"
     }
   }
 ]
