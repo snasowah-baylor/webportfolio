@@ -1,0 +1,147 @@
+[
+{
+  "model": "projects.project",
+  "pk": 1,
+  "fields": {
+    "title": "AI Portfolio Chatbot",
+    "slug": "ai-portfolio-chatbot",
+    "summary": "A conversational AI assistant embedded in this portfolio that answers visitor questions about my projects, skills, and experience in real time.",
+    "description": "An LLM-powered chatbot integrated directly into the portfolio site to provide an interactive way for recruiters and collaborators to explore my work. Instead of scrolling through static pages, visitors can ask natural-language questions such as \"What ML projects has Stephen worked on?\" or \"Show me his cybersecurity experience\" and receive grounded, contextual answers drawn from a curated knowledge base of project write-ups, blog posts, and resume content. The business problem it solves is engagement and discoverability: traditional portfolios bury the most relevant evidence of capability behind navigation, and busy hiring managers rarely click past the landing page. The chatbot surfaces the right project for the visitor's specific interest, turning passive browsing into a guided conversation.",
+    "category": "AI",
+    "tools_used": "Python, Django, Anthropic Claude API, LangChain, FAISS, HTMX, Tailwind CSS, PostgreSQL",
+    "key_features": "- Retrieval-augmented generation (RAG) pipeline over project descriptions and blog posts\r\n- Streaming responses via server-sent events for a real-time chat feel\r\n- Conversation memory scoped to the visitor's session\r\n- Prompt-injection guardrails and topic-scoping to keep answers on portfolio content\r\n- Admin dashboard to review transcripts and refine the knowledge base\r\n- Token-usage logging and per-session rate limiting to control API costs",
+    "role_contribution": "Sole designer and developer. I owned the end-to-end build: data ingestion from the Django ORM into a FAISS vector store, prompt engineering for the system message and retrieval template, the HTMX-powered chat UI, and the deployment pipeline. I also wrote the evaluation harness that scores answer quality against a held-out set of representative questions.",
+    "challenges": "The hardest problem was keeping the model grounded. Early versions confidently invented projects that did not exist whenever a question fell outside the indexed content. I fixed this with a two-stage prompt that first classifies whether the question is in-scope, then forces the model to cite at least one retrieved chunk before answering, and explicitly refuses if confidence is low. Cost control was the second challenge — naively re-embedding the corpus on every deploy was wasteful, so I added content hashing to only re-embed changed records.",
+    "lessons_learned": "RAG quality lives or dies by the chunking strategy, not the model choice. I also learned that evaluation must come before iteration — without a scored test set, every prompt tweak feels like an improvement. Finally, streaming UX dramatically changes perceived latency: the same 4-second response feels instant when tokens arrive progressively.",
+    "image": "projects/Screenshot_2026-05-13_154037.png",
+    "github_link": "https://github.com/nasowah/ai-portfolio-chatbot",
+    "demo_link": "https://nasowah.com/chat",
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T20:40:52.910Z",
+    "is_featured": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "A handyman n8n agent Workflow",
+    "slug": "n8n-agent-workflow",
+    "summary": "A n8n automation that orchestrates an AI agent to triage inbound leads, enrich them from public sources, and route them to the right Slack channel.",
+    "description": "A workflow automation built on n8n that replaces a manual lead-handling process with an autonomous agent workflow. When a new contact form submission lands, the workflow extracts the lead's name and company, calls an LLM-backed agent node to research the company (industry, size, recent news), scores the lead against an ideal customer profile rubric, and posts a structured summary to the appropriate Slack channel with suggested talking points. The business problem: a small team was spending 20+ minutes per lead on initial qualification, and high-intent leads were getting buried under low-fit ones. The workflow compresses qualification to under 90 seconds and surfaces the best-fit leads first.",
+    "category": "AUTO",
+    "tools_used": "n8n, Docker, OpenAI API, Anthropic Claude API, Slack API, HTTP Request nodes, PostgreSQL, Webhook triggers",
+    "key_features": "- Webhook entry point that accepts leads from any source (form, CRM, API)\r\n- LLM agent node with tool-calling for web search and company enrichment\r\n- Deterministic scoring step that combines agent output with rule-based filters\r\n- Slack routing logic that maps lead category to the right channel and on-call rep\r\n- Retry and dead-letter handling for transient API failures\r\n- Audit log written to Postgres for every run, enabling weekly quality review",
+    "role_contribution": "Designed the workflow architecture from a whiteboard of the existing manual process, built and tested every node, wrote the agent prompts, and deployed the n8n instance on a Docker host behind a reverse proxy. I also trained the team on how to update the scoring rubric without breaking the flow.",
+    "challenges": "Agent nodes were unreliable when given too much freedom — they would occasionally skip enrichment and hallucinate a score. The fix was to split the single agent into a chain of narrow steps, each with one tool and one decision, which made the flow auditable and dramatically more stable. Rate-limit handling on the enrichment APIs was the other big challenge, solved with a token-bucket pattern in a Function node.",
+    "lessons_learned": "Agent autonomy is a knob, not a virtue — narrower agents with explicit handoffs outperformed a single \"do everything\" agent every time. I also learned the value of designing for observability from day one: every node writes a structured log entry, which made debugging production issues trivial compared to my earlier no-code projects.",
+    "image": "projects/WhatsApp_Image_2026-04-24_at_20_IKEZd6y.58.20.jpeg",
+    "github_link": "https://github.com/snasowah-baylor/HandyManProject",
+    "demo_link": null,
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T20:15:09.578Z",
+    "is_featured": true,
+    "display_order": 2
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 4,
+  "fields": {
+    "title": "Google AI Studio Media Project",
+    "slug": "google-ai-studio-media-project",
+    "summary": "An end-to-end media generation pipeline built in Google AI  Studio using Gemini and Nano Banana that turns provided assets  into AI-generated images and short-form videos.",
+    "description": "Traditional media production requires specialized skills and \r\nexpensive tools. This project explores how Google AI Studio's \r\nmultimodal Gemini models can democratize media creation — \r\ngenerating images, analyzing video content, processing audio, \r\nand producing written narratives from a single prompt-driven \r\ninterface.\r\n\r\nThe project demonstrates practical applications of multimodal \r\nAI for content creation, business communications, and \r\neducational media.",
+    "category": "AI",
+    "tools_used": "Google AI Studio, Gemini 1.5 Pro, Imagen 3, Google Cloud Run, Firebase, Python, TypeScript, React",
+    "key_features": "- End-to-end pipeline from raw assets to finished short-form video\r\n- AI image generation using Gemini inside Google AI Studio\r\n- Video generation using Nano Banana model\r\n- Ability to extend already generated videos with new content\r\n- Asset-driven workflow — input images and text drive the output\r\n- Explored prompt engineering for consistent visual style \r\n  across generated frames",
+    "role_contribution": "Built and ran the full pipeline myself. Responsible for \r\nsetting up the generation workflow in Google AI Studio, \r\nselecting and preparing the input assets, writing the \r\nprompts that drove the image and video output, and figuring \r\nout how to continuously extend the generated video without \r\nlosing quality or consistency.",
+    "challenges": "The hardest part was keeping the generated content consistent \r\nwhen adding to an already finished video. Each new generation \r\ncan drift in style, lighting, or tone if the prompts are not \r\ncarefully controlled. Getting the model to treat new frames \r\nas a continuation rather than a fresh start took several \r\nrounds of testing and prompt adjustment.",
+    "lessons_learned": "AI media generation is much more controllable than it first \r\nappears,but only if you invest time in understanding how \r\nthe model responds to different prompts and inputs. Learned \r\nthat extending a video iteratively is a genuinely useful \r\ntechnique, and that the quality of the input assets directly \r\naffects the quality of what comes out. Garbage in, garbage out \r\napplies just as much to media generation as it does to data.",
+    "image": "projects/image-3_finFWSR.png",
+    "github_link": "https://github.com/snasowah-baylor",
+    "demo_link": null,
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T20:15:32.618Z",
+    "is_featured": true,
+    "display_order": 4
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 6,
+  "fields": {
+    "title": "Campus SkillSwap Django Project",
+    "slug": "campus-skillswap-django-project",
+    "summary": "A Django web platform that lets university students trade skills directly — a coding tutor exchanges sessions with a graphic designer — with no money involved.",
+    "description": "Campus SkillSwap is a full-stack Django application that solves a problem specific to student communities: many students have a skill they could teach (coding, design, languages, music, fitness) and a skill they want to learn, but no convenient way to find each other or coordinate. Existing platforms either charge money students don't want to spend or are general marketplaces that bury the campus context. SkillSwap is a closed, university-scoped exchange where students list what they can offer and what they want in return, the platform suggests matches, and a session-tracking flow holds both sides accountable to follow through. The business problem is community engagement and informal learning, and the design choice to require a reciprocal exchange (rather than free tutoring) is what makes the model sustainable — both sides have skin in the game.",
+    "category": "WEB",
+    "tools_used": "Python, Django, Django REST Framework, PostgreSQL, HTMX, Tailwind CSS, Celery, Redis, AWS S3, Docker",
+    "key_features": "- University-email-verified signup that scopes every user to their campus\r\n- Skill-listing system with categories, levels, and availability windows\r\n- Match suggestions based on complementary offer/want pairs\r\n- In-app messaging and session scheduling with calendar integration\r\n- Session confirmation flow that records completed swaps and builds reputation\r\n- Admin tools for campus ambassadors to moderate and run skill-share events\r\n- Celery-backed reminder emails before scheduled sessions",
+    "role_contribution": "Lead developer and product owner. I designed the data model, built the matching logic, implemented the HTMX-driven UI, set up the Celery + Redis async stack for notifications, and deployed the platform on AWS. I also ran user interviews with a pilot cohort of 40 students and iterated the matching algorithm based on their feedback.",
+    "challenges": "The matching algorithm was harder than I expected. A naive \"who offers what I want\" query produced lopsided results — the most popular skills had hundreds of seekers and few teachers. I rebuilt matching to weight by mutual interest and by recency of activity, and added a queue for high-demand skills so seekers see when a teacher becomes available. The other big challenge was trust: students were reluctant to commit time to a stranger, so I added a lightweight reputation system tied to completed sessions and made the first-session feedback flow mandatory.",
+    "lessons_learned": "Building for a specific community beats building for everyone — every feature decision became easier once I treated the user as \"a sophomore at one specific campus\" rather than a generic platform user. I also learned that two-sided marketplaces fail on the supply side first; almost all of my product effort went into making it rewarding to teach, not to learn. Finally, HTMX with Django was a revelation — I shipped a feel-like-an-SPA experience without writing a separate front-end.",
+    "image": "projects/Screenshot_2026-05-13_114846.png",
+    "github_link": "https://github.com/nasowah/campus-skillswap",
+    "demo_link": null,
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T19:40:15.360Z",
+    "is_featured": true,
+    "display_order": 6
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 7,
+  "fields": {
+    "title": "PantryFinder",
+    "slug": "pantryfinder",
+    "summary": "A Django web app that helps Waco and Baylor-area residents find the nearest open food pantry, with hours, eligibility notes, and walking-distance estimates.",
+    "description": "PantryFinder is a community-facing Django application built for Waco, Texas and the Baylor student community. Food insecurity is a real but often invisible problem on and around campus, and the existing options — scattered church bulletins, outdated PDFs, word of mouth — are hard to navigate when someone is already in a tough spot. PantryFinder centralizes the local pantry network into a clean, mobile-first directory with current hours, what each pantry provides, eligibility requirements (some are student-only, some require ID, some are open to all), and a walking-distance estimate from the user's location. The business problem is reducing the friction between need and resource: a hungry student should not need to make six phone calls to find an open pantry on a Saturday.",
+    "category": "WEB",
+    "tools_used": "Python, Django, PostgreSQL, HTMX, Tailwind CSS, Leaflet.js, OpenStreetMap, Geopy, Docker",
+    "key_features": "- Searchable directory of local pantries with hours, eligibility, and contact info\r\n- Map view powered by Leaflet and OpenStreetMap tiles (no Google billing required)\r\n- Geolocation-based \"nearest open now\" sort\r\n- Admin interface for partner pantries to update their own hours\r\n- Mobile-first responsive design tested on entry-level phones\r\n- Multilingual seed content (English + Spanish) for the Waco community",
+    "role_contribution": "Sole developer and community lead. I interviewed three Waco pantry coordinators to validate the data model, built the Django backend and HTMX-driven UI, set up the Leaflet map integration, and recruited two pantries to pilot the partner-update flow.",
+    "challenges": "Pantry hours change constantly — special closures, holiday schedules, seasonal extensions — and no single source of truth exists. I added an \"as of\" timestamp on every listing and a low-friction \"report this is wrong\" button that creates an admin ticket, so the data stays trustworthy without requiring every pantry to log in weekly.",
+    "lessons_learned": "Civic software lives or dies on data freshness, not feature count. I also learned that a clear eligibility-at-a-glance line on each card mattered more to users than the map — people want to know if they can even go before they care about where it is.",
+    "image": "projects/Screenshot_2026-05-13_145634.png",
+    "github_link": "https://github.com/nasowah/pantryfinder",
+    "demo_link": null,
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T19:58:11.201Z",
+    "is_featured": true,
+    "display_order": 7
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 26,
+  "fields": {
+    "title": "docx to Markdown Converter",
+    "slug": "docx-to-markdown-converter",
+    "summary": "A FastAPI web service that converts .docx files to clean Markdown instantly in the browser using mammoth.",
+    "description": "Word documents are locked in a proprietary format that doesn't play well with modern developer workflows. This tool solves that by providing a drag-and-drop web interface to instantly convert .docx files to clean Markdown, preserving headings, bold, italic, lists, and hyperlinks. Built with FastAPI and deployed on AWS, it demonstrates production-grade Python web development with containerization.",
+    "category": "WEB",
+    "tools_used": "FastAPI, Python, mammoth, Docker, AWS Elastic Beanstalk, Uvicorn, HTML, CSS",
+    "key_features": "- Drag-and-drop upload UI with no JS frameworks\r\n- Accurate conversion powered by mammoth preserving all formatting\r\n- Filename mirroring so output matches input\r\n- Auto API docs via FastAPI Swagger UI\r\n- Docker-ready for local dev and production\r\n- Deployed on AWS Elastic Beanstalk",
+    "role_contribution": "Sole developer. Designed and built the FastAPI application, conversion pipeline, drag-and-drop frontend, Docker configuration, and AWS Elastic Beanstalk deployment. Used spec-driven development with SPEC.md as source of truth.",
+    "challenges": "Ensuring accurate conversion of complex Word documents with nested formatting, tables, and hyperlinks required careful mammoth configuration. Also had to design the Docker image to work identically in local dev and AWS production environments.",
+    "lessons_learned": "FastAPI is significantly faster to develop with than Django for pure API services with no database. Spec-driven development with a SPEC.md file dramatically reduces ambiguity during development. Docker Compose for local dev that mirrors production eliminates environment-related bugs.",
+    "image": "projects/Screenshot_2026-05-13_135413_IDaein7.png",
+    "github_link": "https://github.com/snasowah-baylor/docxMD_convert",
+    "demo_link": null,
+    "created_at": "2025-01-15T12:00:00Z",
+    "updated_at": "2026-05-13T19:38:33.575Z",
+    "is_featured": true,
+    "display_order": 26
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 27,
+  "fields": {
+    "title": "Machine Learning Exercises — scikit-learn",
+    "slug": "machine-learning-exercises-scikit-learn-pipelines",
+    "summary": "Five hands-on supervised learning exercises using scikit-learn,  covering KNN classification on Iris and Digits datasets and  LinearRegression on California Housing, Auto-MPG, and Diabetes  datasets — each ending with a matplotlib/seaborn visualization.",
+    "description": 
